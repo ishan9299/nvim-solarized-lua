@@ -17,7 +17,6 @@ if fn.exists("syntax_on") then
 end
 
 local setup = function(group, colors)
-    print(group)
     cmd(string.format('hi %s guifg=%s guibg=%s gui=%s', group, colors.guifg, colors.guibg, colors.gui))
 end
 
