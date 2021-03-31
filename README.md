@@ -2,6 +2,9 @@
 
 Solarized in lua for neovim.
 
+![solarized-dark](./screenshots/solarized-dark.png)
+solarized-dark
+
 ## TODO
 
 - The light colorscheme
