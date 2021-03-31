@@ -9,3 +9,5 @@ Solarized in lua for neovim.
 - 0.5 features
    + LSP
    + TS
+   + Telescope
+   + lualine
