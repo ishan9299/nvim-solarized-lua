@@ -216,12 +216,6 @@ function M.load_syntax()
         pandocMetadata = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocMetadataKey = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocMetadata = {guifg=colors.blue,guibg='none',gui='bold',cterm='bold'},
-        ALEError = {guifg=colors.red,guibg='none',guisp=colors.red,gui='undercurl',cterm='undercurl'},
-        ALEErrorLine = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
-        ALEInfo = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl',cterm='undercurl'},
-        ALEInfoLine = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
-        ALEWarning = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl',cterm='undercurl'},
-        ALEWarningLine = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
         StatusLine = {guifg=colors.base0,guibg=colors.base02,gui='reverse',cterm='reverse'},
         StatusLineNC = {guifg=colors.base01,guibg=colors.base02,gui='reverse',cterm='reverse'},
         TabLine = {guifg=colors.base01,guibg=colors.base02,gui='reverse',cterm='reverse'},
@@ -297,14 +291,6 @@ function M.load_syntax()
     syntax['pandocEscapedCharacter'] = syntax['pandocEscapePair']
     syntax['pandocLineBreak'] = syntax['pandocEscapePair']
     syntax['pandocMetadataTitle'] = syntax['pandocMetadata']
-
-    -- ALE
-    syntax['ALEStyleError'] = syntax['ALEError']
-    syntax['ALEStyleErrorSign'] = syntax['ALEErrorSign']
-    syntax['ALEStyleErrorSignLineNr'] = syntax['ALEErrorSignLineNr']
-    syntax['ALEStyleWarning'] = syntax['ALEWarning']
-    syntax['ALEStyleWarningSign'] = syntax['ALEWarningSign']
-    syntax['ALEStyleWarningSignLineNr'] = syntax['ALEWarningSignLineNr']
 
     -- TreeSitter
     -- syntax['TSAnnotation'] = syntax['']
