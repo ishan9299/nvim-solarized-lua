@@ -13,6 +13,14 @@ telescope
 ![treesitter](./screenshots/treesitter.png)
 treesitter
 
+![lualine](./screenshots/lualine.png)
+lualine
+```lua
+require('lualine').setup{
+    options = {theme = 'solarized'}
+}
+```
+
 ## TODO
 
 - The light colorscheme
