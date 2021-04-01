@@ -4,42 +4,13 @@ Solarized in lua for neovim.
 
 ## Dark Theme
 
-![fzf](./screenshots/fzf-dark.png)
-fzf
+![Screenshot from 2021-04-01 15-11-51](https://user-images.githubusercontent.com/47824004/113275791-c9346480-92fc-11eb-8878-2504eda2a5c9.png)
 
-![telescope](./screenshots/telescope-dark.png)
-telescope
-
-![treesitter](./screenshots/treesitter-dark.png)
-treesitter
-
-![lualine](./screenshots/lualine-dark.png)
-lualine
-```lua
-require('lualine').setup{
-    options = {theme = 'solarized'}
-}
-```
 
 ## Light Theme
 
+![Screenshot from 2021-04-01 15-10-21](https://user-images.githubusercontent.com/47824004/113275723-b4f06780-92fc-11eb-97e6-23dce847e0a7.png)
 
-![fzf](./screenshots/fzf-light.png)
-fzf
-
-![telescope](./screenshots/telescope-light.png)
-telescope
-
-![treesitter](./screenshots/treesitter-light.png)
-treesitter
-
-![lualine](./screenshots/lualine-light.png)
-lualine
-```lua
-require('lualine').setup{
-    options = {theme = 'solarized'}
-}
-```
 
 ## TODO
 
