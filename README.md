@@ -2,8 +2,16 @@
 
 Solarized in lua for neovim.
 
-![solarized-dark](./screenshots/solarized-dark.png)
-solarized-dark
+## Dark Theme
+
+![fzf](./screenshots/fzf.png)
+fzf
+
+![telescope](./screenshots/telescope.png)
+telescope
+
+![treesitter](./screenshots/treesitter.png)
+treesitter
 
 ## TODO
 
@@ -11,6 +19,6 @@ solarized-dark
 - Features from vim-solarized8
 - 0.5 features
    + LSP
-   + TS
-   + Telescope
-   + lualine
+   + ~~TS~~
+   + ~~Telescope~~
+   + ~~lualine~~
