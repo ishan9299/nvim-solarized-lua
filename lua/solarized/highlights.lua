@@ -40,7 +40,7 @@ function M.load_syntax()
         Directory = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         EndOfBuffer = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
         ErrorMsg = {guifg=colors.red,guibg=colors.base3,gui='reverse',cterm='reverse'},
-        IncSearch = {guifg=colors.organge,guibg='none',gui='standout',cterm='standout'},
+        IncSearch = {guifg=colors.orange,guibg='none',gui='standout',cterm='standout'},
         MatchParen = {guifg=colors.base3,guibg=colors.base02,gui='bold',cterm='bold'},
         ModeMsg = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         MoreMsg = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
@@ -48,42 +48,42 @@ function M.load_syntax()
         PmenuSbar = {guifg='none',guibg=colors.base01,gui='none',cterm='none'},
         PmenuSel = {guifg=base2,guibg=colors.base00,gui='none',cterm='none'},
         PmenuThumb = {guifg='none',guibg=colors.base0,gui='none',cterm='none'},
-        Question = {guifg=cyan,guibg='none',gui='bold',cterm='bold'},
+        Question = {guifg=colors.cyan,guibg='none',gui='bold',cterm='bold'},
         Search = {guifg=colors.yellow,guibg='none',gui='reverse',cterm='reverse'},
         SignColumn = {guifg=colors.base0,guibg='none',gui='none',cterm='none'},
         Visual = {guifg=colors.base01,guibg=colors.base03,gui='reverse',cterm='reverse'},
         VisualNOS = {guifg='none',guibg=colors.base02,gui='reverse',cterm='reverse'},
-        WarningMsg = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
+        WarningMsg = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
         WildMenu = {guifg=base2,guibg=colors.base02,gui='reverse',cterm='reverse'},
         Comment = {guifg=colors.base01,guibg='none',gui='italic',cterm='italic'},
-        Constant = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        Constant = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         CursorIM = {guifg='none',guibg=fg,gui='none',cterm='none'},
         Error = {guifg=colors.red,guibg=colors.base3,gui='bold','reverse',cterm='bold','reverse'},
         Identifier = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         Ignore = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
-        PreProc = {guifg=colors.organge,guibg='none',gui='none',cterm='none'},
-        Special = {guifg=colors.organge,guibg='none',gui='none',cterm='none'},
+        PreProc = {guifg=colors.orange,guibg='none',gui='none',cterm='none'},
+        Special = {guifg=colors.orange,guibg='none',gui='none',cterm='none'},
         Statement = {guifg=colors.green,guibg='none',gui='none',cterm='none'},
         Todo = {guifg=colors.magenta,guibg='none',gui='bold',cterm='bold'},
         Type = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
         Underlined = {guifg=colors.violet,guibg='none',gui='none',cterm='none'},
         NormalMode = {guifg=colors.base0,guibg=colors.base3,gui='reverse',cterm='reverse'},
-        InsertMode = {guifg=cyan,guibg=colors.base3,gui='reverse',cterm='reverse'},
-        ReplaceMode = {guifg=colors.organge,guibg=colors.base3,gui='reverse',cterm='reverse'},
+        InsertMode = {guifg=colors.cyan,guibg=colors.base3,gui='reverse',cterm='reverse'},
+        ReplaceMode = {guifg=colors.orange,guibg=colors.base3,gui='reverse',cterm='reverse'},
         VisualMode = {guifg=colors.magenta,guibg=colors.base3,gui='reverse',cterm='reverse'},
         CommandMode = {guifg=colors.magenta,guibg=colors.base3,gui='reverse',cterm='reverse'},
         vimCommentString = {guifg=colors.violet,guibg='none',gui='none',cterm='none'},
         vimCommand = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
         vimCmdSep = {guifg=colors.blue,guibg='none',gui='bold',cterm='bold'},
         helpExample = {guifg=colors.base1,guibg='none',gui='none',cterm='none'},
-        helpOption = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        helpOption = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         helpNote = {guifg=colors.magenta,guibg='none',gui='none',cterm='none'},
         helpVim = {guifg=colors.magenta,guibg='none',gui='none',cterm='none'},
         helpHyperTextJump = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         helpHyperTextEntry = {guifg=colors.green,guibg='none',gui='none',cterm='none'},
         vimIsCommand = {guifg=colors.base00,guibg='none',gui='none',cterm='none'},
         vimSynMtchOpt = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
-        vimSynType = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        vimSynType = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         vimHiLink = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         vimHiGroup = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         vimGroup = {guifg=colors.blue,guibg='none',gui='bold',cterm='bold'},
@@ -94,7 +94,7 @@ function M.load_syntax()
         gitcommitdiscardedtype = {guifg=colors.red,guibg='none',gui='none',cterm='none'},
         gitcommitselectedtype = {guifg=colors.green,guibg='none',gui='none',cterm='none'},
         gitcommitHeader = {guifg=colors.base01,guibg='none',gui='none',cterm='none'},
-        gitcommitUntrackedFile = {guifg=cyan,guibg='none',gui='bold',cterm='bold'},
+        gitcommitUntrackedFile = {guifg=colors.cyan,guibg='none',gui='bold',cterm='bold'},
         gitcommitDiscardedFile = {guifg=colors.red,guibg='none',gui='bold',cterm='bold'},
         gitcommitSelectedFile = {guifg=colors.green,guibg='none',gui='bold',cterm='bold'},
         gitcommitUnmergedFile = {guifg=colors.yellow,guibg='none',gui='bold',cterm='bold'},
@@ -108,27 +108,27 @@ function M.load_syntax()
         javaScript = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
         perlHereDoc = {guifg=colors.base1,guibg=colors.base03,gui='none',cterm='none'},
         perlVarPlain = {guifg=colors.yellow,guibg=colors.base03,gui='none',cterm='none'},
-        perlStatementFileDesc = {guifg=cyan,guibg=colors.base03,gui='none',cterm='none'},
-        texstatement = {guifg=cyan,guibg=colors.base03,gui='none',cterm='none'},
+        perlStatementFileDesc = {guifg=colors.cyan,guibg=colors.base03,gui='none',cterm='none'},
+        texstatement = {guifg=colors.cyan,guibg=colors.base03,gui='none',cterm='none'},
         texmathzonex = {guifg=colors.yellow,guibg=colors.base03,gui='none',cterm='none'},
         texmathmatcher = {guifg=colors.yellow,guibg=colors.base03,gui='none',cterm='none'},
         texreflabel = {guifg=colors.yellow,guibg=colors.base03,gui='none',cterm='none'},
         rubyDefine = {guifg=colors.base1,guibg=colors.base03,gui='bold',cterm='bold'},
         rubyBoolean = {guifg=colors.magenta,guibg=colors.base03,gui='none',cterm='none'},
-        cPreCondit = {guifg=colors.organge,guibg='none',gui='none',cterm='none'},
+        cPreCondit = {guifg=colors.orange,guibg='none',gui='none',cterm='none'},
         VarId = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         ConId = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
         hsImport = {guifg=colors.magenta,guibg='none',gui='none',cterm='none'},
         hsString = {guifg=colors.base00,guibg='none',gui='none',cterm='none'},
-        hsStructure = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        hsStructure = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         hs_hlFunctionName = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
-        hsStatement = {guifg=cyan,guibg='none',gui='none',cterm='none'},
-        hsImportLabel = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        hsStatement = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
+        hsImportLabel = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         hs_OpFunctionName = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
-        hs_DeclareFunction = {guifg=colors.organge,guibg='none',gui='none',cterm='none'},
-        hsVarSym = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        hs_DeclareFunction = {guifg=colors.orange,guibg='none',gui='none',cterm='none'},
+        hsVarSym = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         hsType = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
-        hsTypedef = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        hsTypedef = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         hsModuleName = {guifg=colors.green,guibg='none',gui='none',cterm='none'},
         pandocTitleBlock = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocTitleBlockTitle = {guifg=colors.blue,guibg='none',gui='bold',cterm='bold'},
@@ -137,7 +137,7 @@ function M.load_syntax()
         pandocVerbatimBlock = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
         pandocBlockQuote = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocBlockQuoteLeader1 = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
-        pandocBlockQuoteLeader2 = {guifg=cyan,guibg='none',gui='none',cterm='none'},
+        pandocBlockQuoteLeader2 = {guifg=colors.cyan,guibg='none',gui='none',cterm='none'},
         pandocBlockQuoteLeader3 = {guifg=colors.yellow,guibg='none',gui='none',cterm='none'},
         pandocBlockQuoteLeader4 = {guifg=colors.red,guibg='none',gui='none',cterm='none'},
         pandocBlockQuoteLeader5 = {guifg=colors.base0,guibg='none',gui='none',cterm='none'},
@@ -169,24 +169,24 @@ function M.load_syntax()
         pandocVerbatimInlineTable = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocSuperscriptTable = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocSubscriptTable = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
-        pandocHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocHeadingMarker = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocEmphasisHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocEmphasisNestedHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocStrongEmphasisHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocStrongEmphasisNestedHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocStrongEmphasisEmphasisHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocStrikeoutHeading = {guifg=colors.organge,guibg='none',gui='reverse',cterm='reverse'},
-        pandocVerbatimInlineHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocSuperscriptHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
-        pandocSubscriptHeading = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
+        pandocHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocHeadingMarker = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocEmphasisHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocEmphasisNestedHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocStrongEmphasisHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocStrongEmphasisNestedHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocStrongEmphasisEmphasisHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocStrikeoutHeading = {guifg=colors.orange,guibg='none',gui='reverse',cterm='reverse'},
+        pandocVerbatimInlineHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocSuperscriptHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
+        pandocSubscriptHeading = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
         pandocLinkDelim = {guifg=colors.base01,guibg='none',gui='none',cterm='none'},
         pandocLinkLabel = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocLinkText = {guifg=colors.blue,guibg='none',gui='none',cterm='none'},
         pandocLinkURL = {guifg=colors.base00,guibg='none',gui='none',cterm='none'},
         pandocLinkTitle = {guifg=colors.base00,guibg='none',gui='none',cterm='none'},
         pandocLinkTitleDelim = {guifg=colors.base01,guibg='none',guisp=colors.base00,gui='none',cterm='none'},
-        pandocLinkDefinition = {guifg=cyan,guibg='none',guisp=colors.base00,gui='none',cterm='none'},
+        pandocLinkDefinition = {guifg=colors.cyan,guibg='none',guisp=colors.base00,gui='none',cterm='none'},
         pandocLinkDefinitionID = {guifg=colors.blue,guibg='none',gui='bold',cterm='bold'},
         pandocImageCaption = {guifg=colors.violet,guibg='none',gui='bold',cterm='bold'},
         pandocFootnoteLink = {guifg=colors.green,guibg='none',gui='none',cterm='none'},
@@ -218,7 +218,7 @@ function M.load_syntax()
         pandocMetadata = {guifg=colors.blue,guibg='none',gui='bold',cterm='bold'},
         ALEError = {guifg=colors.red,guibg='none',guisp=colors.red,gui='undercurl',cterm='undercurl'},
         ALEErrorLine = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
-        ALEInfo = {guifg=cyan,guibg='none',guisp=cyan,gui='undercurl',cterm='undercurl'},
+        ALEInfo = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl',cterm='undercurl'},
         ALEInfoLine = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
         ALEWarning = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl',cterm='undercurl'},
         ALEWarningLine = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none',cterm='none'},
@@ -236,8 +236,8 @@ function M.load_syntax()
         SpellBad = {guifg=colors.violet,guibg='none',guisp=colors.violet,gui='undercurl',cterm='underline'},
         SpellCap = {guifg=colors.violet,guibg='none',guisp=colors.violet,gui='undercurl',cterm='underline'},
         SpellLocal = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl',cterm='underline'},
-        SpellRare = {guifg=cyan,guibg='none',guisp=cyan,gui='undercurl',cterm='underline'},
-        Title = {guifg=colors.organge,guibg='none',gui='bold',cterm='bold'},
+        SpellRare = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl',cterm='underline'},
+        Title = {guifg=colors.orange,guibg='none',gui='bold',cterm='bold'},
     }
 
     syntax['Boolean'] = syntax['Constant']
@@ -297,12 +297,63 @@ function M.load_syntax()
     syntax['pandocEscapedCharacter'] = syntax['pandocEscapePair']
     syntax['pandocLineBreak'] = syntax['pandocEscapePair']
     syntax['pandocMetadataTitle'] = syntax['pandocMetadata']
+
+    -- ALE
     syntax['ALEStyleError'] = syntax['ALEError']
     syntax['ALEStyleErrorSign'] = syntax['ALEErrorSign']
     syntax['ALEStyleErrorSignLineNr'] = syntax['ALEErrorSignLineNr']
     syntax['ALEStyleWarning'] = syntax['ALEWarning']
     syntax['ALEStyleWarningSign'] = syntax['ALEWarningSign']
     syntax['ALEStyleWarningSignLineNr'] = syntax['ALEWarningSignLineNr']
+
+    -- TreeSitter
+    -- syntax['TSAnnotation'] = syntax['']
+    syntax['TSBoolean'] = syntax['Constant']
+    syntax['TSCharacter'] = syntax['Constant']
+    syntax['TSComment'] = syntax['Comment']
+    syntax['TSConditional'] = syntax['Conditional']
+    syntax['TSConstant'] = syntax['Constant']
+    syntax['TSConstBuiltin'] = syntax['Constant']
+    syntax['TSConstMacro'] = syntax['Constant']
+    syntax['TSError'] = syntax['Error']
+    syntax['TSException'] = syntax['Exception']
+    syntax['TSField'] = syntax['Identifier']
+    syntax['TSFloat'] = syntax['Float']
+    syntax['TSFunction'] = syntax['Function']
+    syntax['TSFuncBuiltin'] = syntax['Function']
+    syntax['TSFuncMacro'] = syntax['Function']
+    syntax['TSInclude'] = syntax['Include']
+    syntax['TSKeyword'] = syntax['Keyword']
+    syntax['TSLabel'] = syntax['Label']
+    syntax['TSMethod'] = syntax['Function']
+    syntax['TSNamespace'] = syntax['Identifier']
+    syntax['TSNumber'] = syntax['Constant']
+    syntax['TSOperator'] = syntax['Operator']
+    syntax['TSParameterReference'] = syntax['Identifier']
+    syntax['TSProperty'] = syntax['TSField']
+    syntax['TSPunctDelimiter'] = syntax['Delimiter']
+    syntax['TSPunctBracket'] = syntax['Delimiter']
+    syntax['TSPunctSpecial'] = syntax['Special']
+    syntax['TSRepeat'] = syntax['Repeat']
+    syntax['TSString'] = syntax['Constant']
+    syntax['TSStringRegex'] = syntax['Constant']
+    syntax['TSStringEscape'] = syntax['Constant']
+    syntax['TSStrong'] = {guifg=colors.base1,guibg=colors.base03,gui='bold',cterm='none'}
+    syntax['TSConstructor'] = syntax['Function']
+    syntax['TSKeywordFunction'] = syntax['Identifier']
+    syntax['TSLiteral'] = syntax['Normal']
+    syntax['TSParameter'] = syntax['Identifier']
+    syntax['TSVariable'] = syntax['Identifier']
+    syntax['TSVariableBuiltin'] = syntax['Identifier']
+    syntax['TSTag'] = syntax['Special']
+    syntax['TSTagDelimiter'] = syntax['Delimiter']
+    syntax['TSTitle'] = syntax['Title']
+    syntax['TSType'] = syntax['Type']
+    syntax['TSTypeBuiltin'] = syntax['Type']
+    -- syntax['TSEmphasis'] = syntax['']
+
+    -- Telescope
+
     for group, colors in pairs(syntax) do
         setup(group, colors)
     end
