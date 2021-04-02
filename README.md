@@ -80,23 +80,23 @@ end
 
 - **solarized**
 
-The normal solarized scheme.
-`vim.cmd(colorscheme solarized)`
+The normal solarized scheme.  
+`vim.cmd('colorscheme solarized')`
 
 - **solarized-high**
 
-This one has a higher contrast ratio.
-`vim.cmd(colorscheme solarized-high)`
+This one has a higher contrast ratio.  
+`vim.cmd('colorscheme solarized-high')`
 
 - **solarized-flat**
 
-This is the flat variant.
-`vim.cmd(colorscheme solarized-flat)`
+This is the flat variant.  
+`vim.cmd('colorscheme solarized-flat')`
 
 - **solarized-low**
 
-This is the low contrast option
-`vim.cmd(colorscheme solarized-low)`
+This is the low contrast option.  
+`vim.cmd('colorscheme solarized-low')`
 
 ## TODO
 
