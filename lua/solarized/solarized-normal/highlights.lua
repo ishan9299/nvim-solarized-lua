@@ -430,7 +430,17 @@ function M.load_syntax()
     syntax['TSTypeBuiltin'] = syntax['Type']
     -- syntax['TSEmphasis'] = syntax['']
 
-    -- Telescope
+    syntax['LspDiagnosticsDefaultError'] = {guifg=colors.red,guibg='none',guisp=colors.red,gui='undercurl',cterm=undercurl}
+    syntax['LspDiagnosticsDefaultInformation'] = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl',cterm=undercurl}
+    syntax['LspDiagnosticsDefaultWarning'] = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl',cterm=undercurl}
+    syntax['LspDiagnosticsDefaultHint'] = {guifg=colors.green,guibg='none',guisp=colors.green,gui='undercurl',cterm=undercurl}
+
+    -- Lspsaga
+    syntax['LspSagaFinderSelection'] = syntax['Search']
+    syntax['DiagnosticError'] = syntax['LspDiagnosticsDefaultError'] 
+    syntax['DiagnosticWarning'] = syntax['LspDiagnosticsDefaultWarning'] 
+    syntax['DiagnosticInformation'] = syntax['LspDiagnosticsDefaultInformation'] 
+    syntax['DiagnosticHint'] = syntax['LspDiagnosticsDefaultHint'] 
 
     for group, colors in pairs(syntax) do
         setup(group, colors)
