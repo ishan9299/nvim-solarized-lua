@@ -7,9 +7,9 @@ local fn = vim.fn
 cmd('hi clear')
 
 if o.bg == 'dark' then
-	colors = require('solarized.solarized-normal.solarized-dark').setup()
+	colors = require('solarized.solarized-low.solarized-dark').setup()
 else
-	colors = require('solarized.solarized-normal.solarized-light').setup()
+	colors = require('solarized.solarized-low.solarized-light').setup()
 end
 
 if fn.exists("syntax_on") then
