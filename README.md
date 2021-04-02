@@ -24,12 +24,25 @@ pack/packages/start/solarized
 Plug 'ishan9299/nvim-solarized-lua'
 ```
 
+## Options
+- italics
+- visibility
+- diffmode
+- termtrans
+
+## Variants
+- solarized
+- solarized-high
+- solarized-flat
+- solarized-low
+
 ## TODO
 
 - ~~The light colorscheme~~
-- Features from vim-solarized8
+- Features from vim-solarized8 ( pretty much all of it is here there are still some stuff to do especially the
+  statusline. )
 - 0.5 features
    + LSP
    + ~~TS~~
    + ~~Telescope~~
-   + ~~lualine~~
+   + lualine ( for solarized-flat, solarized-high, solarized-low )
