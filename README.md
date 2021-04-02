@@ -26,31 +26,35 @@ Plug 'ishan9299/nvim-solarized-lua'
 ```
 
 ## Options
-- italics
+- **italics**
 Enable italics for comments (default: enabled)
+
 ```lua
 vim.g.solarized_italics = 1
 ```
 
-- visibility
+- **visibility**
 SpecialChars (like trailing whitespace and tabs) visibility
   + low
   + normal (default)
   + high
+
 ```lua
-vim.g.solarized_diffmode = 'normal'
+vim.g.solarized_visibility = 'normal'
 ```
 
-- diffmode
+- **diffmode**
   + low
   + normal (default)
   + high
+ 
 ```lua
 vim.g.solarized_diffmode = 'normal'
 ```
 
-- termtrans
+- **termtrans**
 If you want to keep the tranperency in your terminal (default: disabled)
+
 ```lua
 -- To enable transperancy
 if vim.fn.has('gui_running') == 0 then
@@ -60,16 +64,17 @@ else
 end
 ```
 
-- statusline
+- **statusline**
   + low
   + flat
-  + normal (default)
-  **NOTE** :-
-  - If you set statusline option's `normal` and `flat` are the same when using the solarized-flat colorscheme.
-  - This option doesn't affect the lua line plugin it has it's own solarized theme.
+  + normal (default)  
+
  ```lua
  vim.g.solarized_statusline = 'normal'
  ```
+  **NOTE** :-
+  - If you set statusline option's `normal` and `flat` are the same when using the solarized-flat colorscheme.
+  - This option doesn't affect the lua line plugin it has it's own solarized theme.
 
 ## Variants
 - solarized `vim.cmd(colorscheme solarized)`
@@ -83,7 +88,7 @@ end
 - Features from vim-solarized8 ( pretty much all of it is here there are still some stuff to do especially the
   statusline. )
 - 0.5 features
-   + ~~~LSP~
+   + ~~LSP~~
    + ~~TS~~
    + ~~Telescope~~
    + ~~lualine~~
