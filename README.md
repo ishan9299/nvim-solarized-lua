@@ -102,12 +102,12 @@ This is the low contrast option.
 
 - ~~The light colorscheme~~
 - Plugins :-  
-   [x] LSP  
-   [x] Treesitter  
-   [x] Telescope  
-   [x] FZF  
-   [x] lualine  
-   [ ] lspsaga (highlights are present not tested feedback needed)  
+   - [x] LSP  
+   - [x] Treesitter  
+   - [x] Telescope  
+   - [x] FZF  
+   - [x] lualine  
+   - [ ] lspsaga (highlights are present not tested feedback needed)  
 
 # NOTE
 - Thanks for lifepillar's vim-solarized8 for providing most of the highlights and color codes for this scheme.
