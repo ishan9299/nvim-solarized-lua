@@ -77,18 +77,37 @@ end
   - This option doesn't affect the lua line plugin it has it's own solarized theme.
 
 ## Variants
-- solarized `vim.cmd(colorscheme solarized)`
-- solarized-high `vim.cmd(colorscheme solarized-high)`
-- solarized-flat `vim.cmd(colorscheme solarized-flat)`
-- solarized-low `vim.cmd(colorscheme solarized-low)`
+
+- **solarized**
+
+The normal solarized scheme.
+`vim.cmd(colorscheme solarized)`
+
+- **solarized-high**
+
+This one has a higher contrast ratio.
+`vim.cmd(colorscheme solarized-high)`
+
+- **solarized-flat**
+
+This is the flat variant.
+`vim.cmd(colorscheme solarized-flat)`
+
+- **solarized-low**
+
+This is the low contrast option
+`vim.cmd(colorscheme solarized-low)`
 
 ## TODO
 
 - ~~The light colorscheme~~
-- Features from vim-solarized8 ( pretty much all of it is here there are still some stuff to do especially the
-  statusline. )
-- 0.5 features
-   + ~~LSP~~
-   + ~~TS~~
-   + ~~Telescope~~
-   + ~~lualine~~
+- plugins
+   [x] LSP
+   [x] Treesitter
+   [x] Telescope
+   [x] FZF
+   [x] lualine
+   [ ] lspsaga (highlights are present not tested feedback needed)
+
+# NOTE
+- Thanks for lifepillar's vim-solarized8 for providing most of the highlights and color codes for this scheme.
