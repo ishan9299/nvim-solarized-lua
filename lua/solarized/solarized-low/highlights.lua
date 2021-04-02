@@ -390,12 +390,17 @@ function M.load_syntax()
 	syntax['LspDiagnosticsDefaultInformation'] = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl',cterm=undercurl}
 	syntax['LspDiagnosticsDefaultWarning'] = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl',cterm=undercurl}
 	syntax['LspDiagnosticsDefaultHint'] = {guifg=colors.green,guibg='none',guisp=colors.green,gui='undercurl',cterm=undercurl}
+        syntax['LspDiagnosticsUnderlineError'] = syntax['LspDiagnosticsDefaultError']
+        syntax['LspDiagnosticsUnderlineWarning'] = syntax['LspDiagnosticsDefaultWarning']
+        syntax['LspDiagnosticsUnderlineInformation'] = syntax['LspDiagnosticsDefaultInformation']
+        syntax['LspDiagnosticsUnderlineHint'] = syntax['LspDiagnosticsDefaultHint']
 
 	syntax['LspSagaFinderSelection'] = syntax['Search']
 	syntax['DiagnosticError'] = syntax['LspDiagnosticsDefaultError'] 
 	syntax['DiagnosticWarning'] = syntax['LspDiagnosticsDefaultWarning'] 
 	syntax['DiagnosticInformation'] = syntax['LspDiagnosticsDefaultInformation'] 
 	syntax['DiagnosticHint'] = syntax['LspDiagnosticsDefaultHint'] 
+
 	for group, colors in pairs(syntax) do
 		setup(group, colors)
 	end

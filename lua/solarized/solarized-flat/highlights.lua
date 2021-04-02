@@ -115,6 +115,11 @@ function M.load_syntax()
 		syntax['StatusLineNC'] = {guifg=colors.base02,guibg=colors.base01,gui='reverse',cterm=reverse}
 		syntax['TabLineSel'] = {guifg=colors.base1,guibg=colors.base02,gui='none',cterm='none'}
 		syntax['NormalMode'] = {guifg=colors.base02,guibg=colors.base1,gui='bold,reverse',cterm='bold,reverse'}
+	elseif g.solarized_statusline == 'flat' then
+		syntax['StatusLine'] = {guifg=colors.base02,guibg=colors.base2,gui='reverse',cterm=reverse}
+		syntax['StatusLineNC'] = {guifg=colors.base02,guibg=colors.base1,gui='reverse',cterm=reverse}
+		syntax['TabLineSel'] = {guifg=colors.base2,guibg=colors.base02,gui='none',cterm='none'}
+		syntax['NormalMode'] = {guifg=colors.base02,guibg=colors.base2,gui='reverse',cterm=reverse}
 	else
 		syntax['StatusLine'] = {guifg=colors.base02,guibg=colors.base2,gui='reverse',cterm=reverse}
 		syntax['StatusLineNC'] = {guifg=colors.base02,guibg=colors.base1,gui='reverse',cterm=reverse}
@@ -424,6 +429,10 @@ function M.load_syntax()
 	syntax['LspDiagnosticsDefaultInformation'] = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl',cterm=undercurl}
 	syntax['LspDiagnosticsDefaultWarning'] = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl',cterm=undercurl}
 	syntax['LspDiagnosticsDefaultHint'] = {guifg=colors.green,guibg='none',guisp=colors.green,gui='undercurl',cterm=undercurl}
+        syntax['LspDiagnosticsUnderlineError'] = syntax['LspDiagnosticsDefaultError']
+        syntax['LspDiagnosticsUnderlineWarning'] = syntax['LspDiagnosticsDefaultWarning']
+        syntax['LspDiagnosticsUnderlineInformation'] = syntax['LspDiagnosticsDefaultInformation']
+        syntax['LspDiagnosticsUnderlineHint'] = syntax['LspDiagnosticsDefaultHint']
 
 	syntax['LspSagaFinderSelection'] = syntax['Search']
 	syntax['DiagnosticError'] = syntax['LspDiagnosticsDefaultError'] 
