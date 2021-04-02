@@ -1,6 +1,7 @@
 # Solarized Neovim
 
-Solarized in lua for neovim.
+This aims to be a complete port [vim-solarized8](https://github.com/lifepillar/vim-solarized8) with support for lua
+plugins, LSP and Treesitter for neovim 0.5.
 
 ## Dark Theme
 
@@ -44,13 +45,13 @@ vim.g.solarized_diffmode = 'normal'
   + low
   + normal (default)
   + high
-```
+```lua
 vim.g.solarized_diffmode = 'normal'
 ```
 
 - termtrans
 If you want to keep the tranperency in your terminal (default: disabled)
-```
+```lua
 -- To enable transperancy
 if vim.fn.has('gui_running') == 0 then
     vim.g.solarized_termtrans = 0
@@ -58,6 +59,17 @@ else
     vim.g.solarized_termtrans = 1
 end
 ```
+
+- statusline
+  + low
+  + flat
+  + normal (default)
+  **NOTE** :-
+  - If you set statusline option's `normal` and `flat` are the same when using the solarized-flat colorscheme.
+  - This option doesn't affect the lua line plugin it has it's own solarized theme.
+ ```lua
+ vim.g.solarized_statusline = 'normal'
+ ```
 
 ## Variants
 - solarized `vim.cmd(colorscheme solarized)`
@@ -71,7 +83,7 @@ end
 - Features from vim-solarized8 ( pretty much all of it is here there are still some stuff to do especially the
   statusline. )
 - 0.5 features
-   + LSP
+   + ~~~LSP~
    + ~~TS~~
    + ~~Telescope~~
-   + lualine ( for solarized-flat, solarized-high, solarized-low )
+   + ~~lualine~~
