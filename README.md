@@ -26,9 +26,38 @@ Plug 'ishan9299/nvim-solarized-lua'
 
 ## Options
 - italics
+Enable italics for comments (default: enabled)
+```lua
+vim.g.solarized_italics = 1
+```
+
 - visibility
+SpecialChars (like trailing whitespace and tabs) visibility
+  + low
+  + normal (default)
+  + high
+```lua
+vim.g.solarized_diffmode = 'normal'
+```
+
 - diffmode
+  + low
+  + normal (default)
+  + high
+```
+vim.g.solarized_diffmode = 'normal'
+```
+
 - termtrans
+If you want to keep the tranperency in your terminal (default: disabled)
+```
+-- To enable transperancy
+if vim.fn.has('gui_running') == 0 then
+    vim.g.solarized_termtrans = 0
+else
+    vim.g.solarized_termtrans = 1
+end
+```
 
 ## Variants
 - solarized
