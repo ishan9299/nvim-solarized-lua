@@ -60,10 +60,10 @@ end
 ```
 
 ## Variants
-- solarized
-- solarized-high
-- solarized-flat
-- solarized-low
+- solarized `vim.cmd(colorscheme solarized)`
+- solarized-high `vim.cmd(colorscheme solarized-high)`
+- solarized-flat `vim.cmd(colorscheme solarized-flat)`
+- solarized-low `vim.cmd(colorscheme solarized-low)`
 
 ## TODO
 
