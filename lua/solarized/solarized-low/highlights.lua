@@ -400,6 +400,7 @@ function M.load_syntax()
 	syntax['DiagnosticWarning'] = syntax['LspDiagnosticsDefaultWarning'] 
 	syntax['DiagnosticInformation'] = syntax['LspDiagnosticsDefaultInformation'] 
 	syntax['DiagnosticHint'] = syntax['LspDiagnosticsDefaultHint'] 
+        syntax['TargetWord'] = syntax['Title']
 
 	for group, colors in pairs(syntax) do
 		setup(group, colors)
