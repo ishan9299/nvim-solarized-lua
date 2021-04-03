@@ -107,7 +107,10 @@ This is the low contrast option.
    - [x] Telescope  
    - [x] FZF  
    - [x] lualine  
-   - [ ] lspsaga (highlights are present not tested feedback needed)  
+   - [x] lspsaga
 
 # NOTE
 - Thanks for lifepillar's vim-solarized8 for providing most of the highlights and color codes for this scheme.
+- If you have an issue with the highlight groups in theme open an issue but also mention the variant of the colorscheme
+  you are using.
+- If any more plugins are needed then open an issue.
