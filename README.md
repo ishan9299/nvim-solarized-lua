@@ -114,3 +114,4 @@ This is the low contrast option.
 - If you have an issue with the highlight groups in theme open an issue but also mention the variant of the colorscheme
   you are using.
 - If any more plugins are needed then open an issue.
+- Only termguicolors are supported
