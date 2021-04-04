@@ -109,8 +109,8 @@ function M.load_syntax()
 	end
 
 	if g.solarized_visibility == 'high' then
-		syntax['CursorLineNr'] = {guifg=colors.red,guibg=colors.base2,gui='bold'}
-		syntax['LineNr'] = {guifg=colors.base00,guibg=termtrans(colors.base2),gui='none'} -- trans
+		syntax['CursorLineNr'] = {guifg=colors.red,guibg=colors.base02,gui='bold'}
+		syntax['LineNr'] = {guifg=colors.base00,guibg=termtrans(colors.base02),gui='none'} -- trans
 		syntax['MatchParen'] = {guifg=colors.base3,guibg=colors.base0,gui='bold'}
 		syntax['NonText'] = {guifg=colors.red,guibg='none',gui='bold'}
 		syntax['SpecialKey'] = {guifg=colors.red,guibg='none',gui='reverse'}
@@ -120,8 +120,8 @@ function M.load_syntax()
 		syntax['SpellRare'] = {guifg=colors.cyan,guibg=colors.base3,guisp=colors.orange,gui='undercurl'}
 		syntax['Title'] = {guifg=colors.orange,guibg='none',gui='bold'}
 	elseif g.solarized_visibility == 'low' then
-		syntax['CursorLineNr'] = {guifg=colors.base1,guibg=colors.base2,gui='bold'}
-		syntax['LineNr'] = {guifg=colors.base1,guibg=termtrans(colors.base2),gui='none'}
+		syntax['CursorLineNr'] = {guifg=colors.base1,guibg=colors.base02,gui='bold'}
+		syntax['LineNr'] = {guifg=colors.base1,guibg=termtrans(colors.base02),gui='none'}
 		syntax['MatchParen'] = {guifg=colors.red,guibg=colors.base2,gui='bold,underline'}
 		syntax['NonText'] = {guifg=colors.base2,guibg='none',gui='bold'}
 		syntax['SpecialKey'] = {guifg=colors.base2,guibg='none',gui='bold'}
