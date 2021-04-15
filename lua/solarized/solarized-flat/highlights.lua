@@ -4,17 +4,19 @@ local g = vim.g
 local o = vim.o
 local fn = vim.fn
 
-cmd('hi clear')
-
 if o.bg == 'dark' then
 	colors = require('solarized.solarized-flat.solarized-dark').setup()
 else
 	colors = require('solarized.solarized-flat.solarized-light').setup()
 end
 
+cmd('hi clear')
+
 if fn.exists("syntax_on") then
 	cmd('syntax reset')
 end
+
+g.colors_name = 'solarized-flat'
 
 local settings = {
 	solarized_visibility = 'normal',
