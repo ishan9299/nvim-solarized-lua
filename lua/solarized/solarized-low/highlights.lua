@@ -16,7 +16,7 @@ if fn.exists("syntax_on") then
 	cmd('syntax reset')
 end
 
-g.colors_name = 'solarized-light'
+g.colors_name = 'solarized-low'
 
 local settings = {
 	solarized_visibility = 'normal',
