@@ -3,7 +3,7 @@ local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
 local fn = vim.fn
-local utils = require('utils')
+local utils = require('solarized.utils')
 
 if o.bg == 'dark' then
 	colors = require('solarized.solarized-flat.solarized-dark').setup()
