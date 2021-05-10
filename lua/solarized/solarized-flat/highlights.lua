@@ -3,6 +3,7 @@ local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
 local fn = vim.fn
+local utils = require('utils')
 
 if o.bg == 'dark' then
 	colors = require('solarized.solarized-flat.solarized-dark').setup()
@@ -12,66 +13,21 @@ end
 
 cmd('hi clear')
 
+utils.default_settings()
+
 if fn.exists("syntax_on") then
 	cmd('syntax reset')
 end
 
 g.colors_name = 'solarized-flat'
 
-local settings = {
-	solarized_visibility = 'normal',
-	solarized_diffmode = 'normal',
-	solarized_termtrans = 0,
-	solarized_statusline = 'normal',
-	solarized_italics = 1
-}
-
-for key,val in pairs(settings) do
-	if g[key] == nil then
-		g[key] = val
-	end
-end
-
-
-local setup = function(group, colors)
-	colors.guisp = colors.guisp or 'none'
-	colors.style = colors.style or 'none'
-	local g_foreground = colors.fg[1]
-	local c_foreground = colors.fg[2]
-	local g_background = colors.bg[1]
-	local c_background = colors.bg[2]
-	local guisp = colors.guisp[1]
-	local style = colors.style
-	cmd(string.format(
-	'hi %s guifg=%s guibg=%s guisp=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
-	group, g_foreground, g_background, guisp, style, c_foreground, c_background, style
-	))
-end
-
 function M.load_syntax()
-
-	local italics = function()
-		if g.solarized_italics == 1 then
-			return 'italic'
-		else
-			return 'none'
-		end
-	end
-
-	local termtrans = function(color)
-		if g.solarized_termtrans == 1 then
-			return 'none'
-		else
-			return color
-		end
-	end
-
 	local syntax = {}
-	syntax['Normal'] = {fg=colors.base0,bg=termtrans(colors.base03)}
-	syntax['CursorLine'] = {fg=colors.none,bg=termtrans(colors.base02)}
+	syntax['Normal'] = {fg=colors.base0,bg=utils.termtrans(colors.base03)}
+	syntax['CursorLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
 	syntax['Terminal'] = syntax['Normal']
-	syntax['ToolbarButton'] = {fg=colors.base1,bg=termtrans(colors.base02),style='bold'}
-	syntax['ToolbarLine'] = {fg=colors.none,bg=termtrans(colors.base02)}
+	syntax['ToolbarButton'] = {fg=colors.base1,bg=utils.termtrans(colors.base02),style='bold'}
+	syntax['ToolbarLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
 
 	if g.solarized_visibility == 'high' then
 		syntax['CursorLineNr'] = {fg=colors.orange,bg=colors.none,style='bold'}
@@ -140,7 +96,7 @@ function M.load_syntax()
 	syntax['Conceal'] = {fg=colors.blue,bg=colors.none}
 	syntax['CursorColumn'] = {fg=colors.none,bg=colors.base02}
 	syntax['Directory'] = {fg=colors.blue,bg=colors.none}
-	syntax['EndOfBuffer'] = {fg=colors.none,bg=colors.none,style='none',ctermfg=colors.none,ctermbg=colors.none}
+	syntax['EndOfBuffer'] = {fg=colors.none,bg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
 	syntax['ErrorMsg'] = {fg=colors.red,bg=colors.base3,style='reverse'}
 	syntax['FoldColumn'] = {fg=colors.base0,bg=colors.none}
 	syntax['Folded'] = {fg=colors.base0,bg=colors.none,guisp=colors.base03,style='bold'}
@@ -163,12 +119,12 @@ function M.load_syntax()
 	syntax['VisualNOS'] = {fg=colors.none,bg=colors.base02,style='reverse'}
 	syntax['WarningMsg'] = {fg=colors.orange,bg=colors.none,style='bold'}
 	syntax['WildMenu'] = {fg=colors.base00,bg=colors.base2,style='reverse'}
-	syntax['Comment'] = {fg=colors.base01,bg=colors.none,style=italics()}
+	syntax['Comment'] = {fg=colors.base01,bg=colors.none,style=utils.italics()}
 	syntax['Constant'] = {fg=colors.cyan,bg=colors.none}
 	syntax['CursorIM'] = {fg=colors.none,bg=colors.base0}
 	syntax['Error'] = {fg=colors.red,bg=colors.base3,style='bold,reverse'}
 	syntax['Identifier'] = {fg=colors.blue,bg=colors.none}
-	syntax['Ignore'] = {fg=colors.none,bg=colors.none,style='none',ctermfg=colors.none,ctermbg=colors.none}
+	syntax['Ignore'] = {fg=colors.none,bg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
 	syntax['PreProc'] = {fg=colors.orange,bg=colors.none}
 	syntax['Special'] = {fg=colors.orange,bg=colors.none}
 	syntax['Statement'] = {fg=colors.green,bg=colors.none}
@@ -194,7 +150,7 @@ function M.load_syntax()
 	syntax['vimHiLink'] = {fg=colors.blue,bg=colors.none}
 	syntax['vimHiGroup'] = {fg=colors.blue,bg=colors.none}
 	syntax['vimGroup'] = {fg=colors.blue,bg=colors.none,style='bold'}
-	syntax['gitcommitComment'] = {fg=colors.base01,bg=colors.none,style=italics()}
+	syntax['gitcommitComment'] = {fg=colors.base01,bg=colors.none,style=utils.italics()}
 	syntax['gitcommitUnmerged'] = {fg=colors.green,bg=colors.none,style='bold'}
 	syntax['gitcommitOnBranch'] = {fg=colors.base01,bg=colors.none,style='bold'}
 	syntax['gitcommitBranch'] = {fg=colors.magenta,bg=colors.none,style='bold'}
@@ -213,7 +169,7 @@ function M.load_syntax()
 	syntax['htmlEndTag'] = {fg=colors.base01,bg=colors.none}
 	syntax['htmlTagN'] = {fg=colors.base1,bg=colors.none,style='bold'}
 	syntax['htmlTagName'] = {fg=colors.blue,bg=colors.none,style='bold'}
-	syntax['htmlSpecialTagName'] = {fg=colors.blue,bg=colors.none,style=italics()}
+	syntax['htmlSpecialTagName'] = {fg=colors.blue,bg=colors.none,style=utils.italics()}
 	syntax['htmlArg'] = {fg=colors.base00,bg=colors.none}
 	syntax['javaScript'] = {fg=colors.yellow,bg=colors.none}
 	syntax['perlHereDoc'] = {fg=colors.base1,bg=colors.base03}
@@ -245,7 +201,7 @@ function M.load_syntax()
 	syntax['pandocTitleBlock'] = {fg=colors.blue,bg=colors.none}
 	syntax['pandocTitleBlockTitle'] = {fg=colors.blue,bg=colors.none,style='bold'}
 	syntax['pandocTitleComment'] = {fg=colors.blue,bg=colors.none,style='bold'}
-	syntax['pandocComment'] = {fg=colors.base01,bg=colors.none,style=italics()}
+	syntax['pandocComment'] = {fg=colors.base01,bg=colors.none,style=utils.italics()}
 	syntax['pandocVerbatimBlock'] = {fg=colors.yellow,bg=colors.none}
 	syntax['pandocBlockQuote'] = {fg=colors.blue,bg=colors.none}
 	syntax['pandocBlockQuoteLeader1'] = {fg=colors.blue,bg=colors.none}
@@ -259,7 +215,7 @@ function M.load_syntax()
 	syntax['pandocDefinitionBlock'] = {fg=colors.violet,bg=colors.none}
 	syntax['pandocDefinitionTerm'] = {fg=colors.violet,bg=colors.none,style='standout'}
 	syntax['pandocDefinitionIndctr'] = {fg=colors.violet,bg=colors.none,style='bold'}
-	syntax['pandocEmphasisDefinition'] = {fg=colors.violet,bg=colors.none,style=italics()}
+	syntax['pandocEmphasisDefinition'] = {fg=colors.violet,bg=colors.none,style=utils.italics()}
 	syntax['pandocEmphasisNestedDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
 	syntax['pandocStrongEmphasisDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
 	syntax['pandocStrongEmphasisNestedDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
@@ -272,7 +228,7 @@ function M.load_syntax()
 	syntax['pandocTableStructure'] = {fg=colors.blue,bg=colors.none}
 	syntax['pandocTableZebraLight'] = {fg=colors.blue,bg=colors.base03}
 	syntax['pandocTableZebraDark'] = {fg=colors.blue,bg=colors.base02}
-	syntax['pandocEmphasisTable'] = {fg=colors.blue,bg=colors.none,style=italics()}
+	syntax['pandocEmphasisTable'] = {fg=colors.blue,bg=colors.none,style=utils.italics()}
 	syntax['pandocEmphasisNestedTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
 	syntax['pandocStrongEmphasisTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
 	syntax['pandocStrongEmphasisNestedTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
@@ -310,7 +266,7 @@ function M.load_syntax()
 	syntax['pandocCitationID'] = {fg=colors.magenta,bg=colors.none}
 	syntax['pandocCitationRef'] = {fg=colors.magenta,bg=colors.none}
 	syntax['pandocStyleDelim'] = {fg=colors.base01,bg=colors.none}
-	syntax['pandocEmphasis'] = {fg=colors.base0,bg=colors.none,style=italics()}
+	syntax['pandocEmphasis'] = {fg=colors.base0,bg=colors.none,style=utils.italics()}
 	syntax['pandocEmphasisNested'] = {fg=colors.base0,bg=colors.none,style='bold'}
 	syntax['pandocStrongEmphasis'] = {fg=colors.base0,bg=colors.none,style='bold'}
 	syntax['pandocStrongEmphasisNested'] = {fg=colors.base0,bg=colors.none,style='bold'}
@@ -451,7 +407,7 @@ function M.load_syntax()
 	syntax['TargetWord'] = syntax['Title']
 
 	for group, colors in pairs(syntax) do
-		setup(group, colors)
+		utils.highlighter(group, colors)
 	end
 end
 

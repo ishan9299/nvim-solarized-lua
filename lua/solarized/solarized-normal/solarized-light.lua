@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
 	local highlight = {
+		none = {'none', 'none'},
 		base2   = {'#073642',15},
 		red     = {'#dc322f',193},
 		green   = {'#859900',133},

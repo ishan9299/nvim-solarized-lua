@@ -3,6 +3,7 @@ local cmd = vim.cmd
 local g = vim.g
 local o = vim.o
 local fn = vim.fn
+local utils = require('utils')
 
 if o.bg == 'dark' then
 	colors = require('solarized.solarized-normal.solarized-dark').setup()
@@ -12,321 +13,283 @@ end
 
 cmd('hi clear')
 
+utils.default_settings()
+
 if fn.exists("syntax_on") then
 	cmd('syntax reset')
 end
 
 g.colors_name = 'solarized'
 
-local settings = {
-	solarized_visibility = 'normal',
-	solarized_diffmode = 'normal',
-	solarized_termtrans = 0,
-	solarized_statusline = 'normal',
-	solarized_italics = 1
-}
-
-for key,val in pairs(settings) do
-	if g[key] == nil then
-		g[key] = val
-	end
-end
-
-
-local setup = function(group, colors)
-	if colors.guisp == nil then
-		cmd(string.format('hi %s guifg=%s guibg=%s gui=%s', group, colors.guifg, colors.guibg, colors.gui))
-	else
-		cmd(string.format('hi %s guifg=%s guibg=%s guisp=%s gui=%s', group, colors.guifg, colors.guibg, colors.guisp, colors.gui))
-	end
-end
-
 function M.load_syntax()
-
-	local italics = function()
-		if g.solarized_italics == 1 then
-			return 'italic'
-		else
-			return 'none'
-		end
-	end
-
-	local termtrans = function(color)
-		if g.solarized_termtrans == 1 then
-			return 'none'
-		else
-			return color
-		end
-	end
-
 	local syntax = {}
 
-	syntax['Normal'] = {guifg=colors.base1,guibg=termtrans(colors.base03),gui='none'}
-	syntax['FoldColumn'] = {guifg=colors.base0,guibg=termtrans(colors.base02),gui='none'}
-	syntax['Folded'] = {guifg=colors.base0,guibg=termtrans(colors.base02),guisp=colors.base03,gui='bold'}
-	syntax['Terminal'] = {guifg=fg,guibg=termtrans(colors.base03),gui='none'}
-	syntax['ToolbarButton'] = {guifg=colors.base1,guibg=termtrans(colors.base02),gui='bold'}
-	syntax['ToolbarLine'] = {guifg='none',guibg=termtrans(colors.base02),gui='none'}
-	syntax['CursorLine'] = {guifg='none',guibg=termtrans(colors.base02),gui='none'}
-	syntax['LineNr'] = {guifg=colors.base00,guibg=termtrans(colors.base02),gui='none'}
+	syntax['Normal'] = {fg=colors.base1,bg=utils.termtrans(colors.base03)}
+	syntax['FoldColumn'] = {fg=colors.base0,bg=utils.termtrans(colors.base02)}
+	syntax['Folded'] = {fg=colors.base0,bg=utils.termtrans(colors.base02),guisp=colors.base03,style='bold'}
+	syntax['Terminal'] = syntax['Normal']
+	syntax['ToolbarButton'] = {fg=colors.base1,bg=utils.termtrans(colors.base02),style='bold'}
+	syntax['ToolbarLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
+	syntax['CursorLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
+	syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)}
 
 	if g.solarized_diffmode == 'low' then
-		syntax['DiffAdd'] = {guifg=colors.green, guibg='none', guisp=colors.green, gui='none'}
-		syntax['DiffChange'] = {guifg=colors.yellow, guibg='none', guisp=colors.yellow, gui='none'}
-		syntax['DiffDelete'] = {guifg=colors.red, guibg='none', gui='bold'}
-		syntax['DiffText'] = {guifg=colors.blue, guibg='none', guisp=colors.blue, gui='none'}
+		syntax['DiffAdd'] = {fg=colors.green, bg=colors.none, guisp=colors.green}
+		syntax['DiffChange'] = {fg=colors.yellow, bg=colors.none, guisp=colors.yellow}
+		syntax['DiffDelete'] = {fg=colors.red, bg=colors.none, style='bold'}
+		syntax['DiffText'] = {fg=colors.blue, bg=colors.none, guisp=colors.blue}
 	elseif g.solarized_diffmode == 'high' then
-		syntax['DiffAdd'] = {guifg=colors.green, guibg='none', gui='reverse'}
-		syntax['DiffChange'] = {guifg=colors.yellow, guibg='none', gui='reverse'}
-		syntax['DiffDelete'] = {guifg=colors.red, guibg='none', gui='reverse'}
-		syntax['DiffText'] = {guifg=colors.blue, guibg='none', gui='reverse'}
+		syntax['DiffAdd'] = {fg=colors.green, bg=colors.none, style='reverse'}
+		syntax['DiffChange'] = {fg=colors.yellow, bg=colors.none, style='reverse'}
+		syntax['DiffDelete'] = {fg=colors.red, bg=colors.none, style='reverse'}
+		syntax['DiffText'] = {fg=colors.blue, bg=colors.none, style='reverse'}
 	else
-		syntax['DiffAdd'] = {guifg=colors.green,guibg=colors.base02,guisp=colors.green,gui='none'}
-		syntax['DiffChange'] = {guifg=colors.yellow,guibg=colors.base02,guisp=colors.yellow,gui='none'}
-		syntax['DiffDelete'] = {guifg=colors.red,guibg=colors.base02,gui='bold'}
-		syntax['DiffText'] = {guifg=colors.blue,guibg=colors.base02,guisp=colors.blue,gui='none'}
+		syntax['DiffAdd'] = {fg=colors.green,bg=colors.base02,guisp=colors.green}
+		syntax['DiffChange'] = {fg=colors.yellow,bg=colors.base02,guisp=colors.yellow}
+		syntax['DiffDelete'] = {fg=colors.red,bg=colors.base02,style='bold'}
+		syntax['DiffText'] = {fg=colors.blue,bg=colors.base02,guisp=colors.blue}
 	end
 
 	if g.solarized_statusline == 'low' then
-		syntax['StatusLine'] = {guifg=colors.base01, guibg=colors.base2, gui='reverse'}
-		syntax['StatusLineNC'] = {guifg=colors.base01, guibg=colors.base02, gui='reverse'}
-		syntax['TabLine'] = {guifg=colors.base01, guibg=colors.base02, gui='reverse'}
-		syntax['TabLineFill'] = {guifg=colors.base01, guibg=colors.base02, gui='reverse'}
-		syntax['TabLineSel'] = {guifg=colors.base0, guibg=colors.base3, gui='reverse'}
-		syntax['VertSplit'] = {guifg=colors.base02, guibg=colors.base01, gui='none'}
+		syntax['StatusLine'] = {fg=colors.base01, bg=colors.base2, style='reverse'}
+		syntax['StatusLineNC'] = {fg=colors.base01, bg=colors.base02, style='reverse'}
+		syntax['TabLine'] = {fg=colors.base01, bg=colors.base02, style='reverse'}
+		syntax['TabLineFill'] = {fg=colors.base01, bg=colors.base02, style='reverse'}
+		syntax['TabLineSel'] = {fg=colors.base0, bg=colors.base3, style='reverse'}
+		syntax['VertSplit'] = {fg=colors.base02, bg=colors.base01}
 	elseif g.solarized_statusline == 'flat' then
-		syntax['StatusLine'] = {guifg=colors.base02, guibg=colors.base2, gui='reverse'}
-		syntax['StatusLineNC'] = {guifg=colors.base02, guibg=colors.base1, gui='reverse'}
-		syntax['TabLineSel'] = {guifg=colors.base2, guibg=colors.base02, gui='none'}
-		syntax['TabLine'] = {guifg=colors.base01, guibg=colors.base02, gui='none'}
-		syntax['TabLineFill'] = {guifg=colors.base01, guibg=colors.base02, gui='none'}
-		syntax['VertSplit'] = {guifg=colors.base01, guibg=colors.base02, gui='none'}
+		syntax['StatusLine'] = {fg=colors.base02, bg=colors.base2, style='reverse'}
+		syntax['StatusLineNC'] = {fg=colors.base02, bg=colors.base1, style='reverse'}
+		syntax['TabLineSel'] = {fg=colors.base2, bg=colors.base02}
+		syntax['TabLine'] = {fg=colors.base01, bg=colors.base02}
+		syntax['TabLineFill'] = {fg=colors.base01, bg=colors.base02}
+		syntax['VertSplit'] = {fg=colors.base01, bg=colors.base02}
 	else
-		syntax['StatusLine'] = {guifg=colors.base0,guibg=colors.base02,gui='reverse'}
-		syntax['StatusLineNC'] = {guifg=colors.base01,guibg=colors.base02,gui='reverse'}
-		syntax['TabLine'] = {guifg=colors.base01,guibg=colors.base02,gui='reverse'}
-		syntax['TabLineFill'] = {guifg=colors.base01,guibg=colors.base02,gui='reverse'}
-		syntax['TabLineSel'] = {guifg=colors.base0,guibg=colors.base02,gui='reverse'}
-		syntax['VertSplit'] = {guifg=colors.base02,guibg=colors.base01,gui='none'}
+		syntax['StatusLine'] = {fg=colors.base0,bg=colors.base02,style='reverse'}
+		syntax['StatusLineNC'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
+		syntax['TabLine'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
+		syntax['TabLineFill'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
+		syntax['TabLineSel'] = {fg=colors.base0,bg=colors.base02,style='reverse'}
+		syntax['VertSplit'] = {fg=colors.base02,bg=colors.base01}
 	end
 
 	if g.solarized_visibility == 'high' then
-		syntax['CursorLineNr'] = {guifg=colors.red,guibg=colors.base02,gui='bold'}
-		syntax['LineNr'] = {guifg=colors.base00,guibg=termtrans(colors.base02),gui='none'} -- trans
-		syntax['MatchParen'] = {guifg=colors.base3,guibg=colors.base0,gui='bold'}
-		syntax['NonText'] = {guifg=colors.red,guibg='none',gui='bold'}
-		syntax['SpecialKey'] = {guifg=colors.red,guibg='none',gui='reverse'}
-		syntax['SpellBad'] = {guifg=colors.magenta,guibg=colors.base3,guisp=colors.violet,gui='undercurl'}
-		syntax['SpellCap'] = {guifg=colors.magenta,guibg=colors.base3,guisp=colors.violet,gui='undercurl'}
-		syntax['SpellLocal'] = {guifg=colors.yellow,guibg=colors.base3,guisp=colors.orange,gui='undercurl'}
-		syntax['SpellRare'] = {guifg=colors.cyan,guibg=colors.base3,guisp=colors.orange,gui='undercurl'}
-		syntax['Title'] = {guifg=colors.orange,guibg='none',gui='bold'}
+		syntax['CursorLineNr'] = {fg=colors.red,bg=colors.base02,style='bold'}
+		syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)} -- trans
+		syntax['MatchParen'] = {fg=colors.base3,bg=colors.base0,style='bold'}
+		syntax['NonText'] = {fg=colors.red,bg=colors.none,style='bold'}
+		syntax['SpecialKey'] = {fg=colors.red,bg=colors.none,style='reverse'}
+		syntax['SpellBad'] = {fg=colors.magenta,bg=colors.base3,guisp=colors.violet,style='undercurl'}
+		syntax['SpellCap'] = {fg=colors.magenta,bg=colors.base3,guisp=colors.violet,style='undercurl'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.base3,guisp=colors.orange,style='undercurl'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.base3,guisp=colors.orange,style='undercurl'}
+		syntax['Title'] = {fg=colors.orange,bg=colors.none,style='bold'}
 	elseif g.solarized_visibility == 'low' then
-		syntax['CursorLineNr'] = {guifg=colors.base1,guibg=colors.base02,gui='bold'}
-		syntax['LineNr'] = {guifg=colors.base1,guibg=termtrans(colors.base02),gui='none'}
-		syntax['MatchParen'] = {guifg=colors.red,guibg=colors.base2,gui='bold,underline'}
-		syntax['NonText'] = {guifg=colors.base2,guibg='none',gui='bold'}
-		syntax['SpecialKey'] = {guifg=colors.base2,guibg='none',gui='bold'}
-		syntax['SpellBad'] = {guifg=colors.magenta,guibg='none',guisp=colors.violet,gui='undercurl'}
-		syntax['SpellCap'] = {guifg=colors.magenta,guibg='none',guisp=colors.violet,gui='undercurl'}
-		syntax['SpellLocal'] = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl'}
-		syntax['SpellRare'] = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl'}
-		syntax['Title'] = {guifg=colors.base1,guibg='none',gui='bold'}
+		syntax['CursorLineNr'] = {fg=colors.base1,bg=colors.base02,style='bold'}
+		syntax['LineNr'] = {fg=colors.base1,bg=utils.termtrans(colors.base02)}
+		syntax['MatchParen'] = {fg=colors.red,bg=colors.base2,style='bold,underline'}
+		syntax['NonText'] = {fg=colors.base2,bg=colors.none,style='bold'}
+		syntax['SpecialKey'] = {fg=colors.base2,bg=colors.none,style='bold'}
+		syntax['SpellBad'] = {fg=colors.magenta,bg=colors.none,guisp=colors.violet,style='undercurl'}
+		syntax['SpellCap'] = {fg=colors.magenta,bg=colors.none,guisp=colors.violet,style='undercurl'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='undercurl'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='undercurl'}
+		syntax['Title'] = {fg=colors.base1,bg=colors.none,style='bold'}
 	else
-		syntax['CursorLineNr'] = {guifg=colors.base0,guibg=colors.base02,gui='bold'}
-		syntax['LineNr'] = {guifg=colors.base00,guibg=termtrans(colors.base02),gui='none'}
-		syntax['MatchParen'] = {guifg=colors.base3,guibg=colors.base02,gui='bold'}
-		syntax['NonText'] = {guifg=colors.base00,guibg='none',gui='bold'}
-		syntax['SpecialKey'] = {guifg=colors.base00,guibg=colors.base02,gui='bold'}
-		syntax['SpellBad'] = {guifg=colors.violet,guibg='none',guisp=colors.violet,gui='undercurl'}
-		syntax['SpellCap'] = {guifg=colors.violet,guibg='none',guisp=colors.violet,gui='undercurl'}
-		syntax['SpellLocal'] = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl'}
-		syntax['SpellRare'] = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl'}
-		syntax['Title'] = {guifg=colors.orange,guibg='none',gui='bold'}
+		syntax['CursorLineNr'] = {fg=colors.base0,bg=colors.base02,style='bold'}
+		syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)}
+		syntax['MatchParen'] = {fg=colors.base3,bg=colors.base02,style='bold'}
+		syntax['NonText'] = {fg=colors.base00,bg=colors.none,style='bold'}
+		syntax['SpecialKey'] = {fg=colors.base00,bg=colors.base02,style='bold'}
+		syntax['SpellBad'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='undercurl'}
+		syntax['SpellCap'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='undercurl'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='undercurl'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='undercurl'}
+		syntax['Title'] = {fg=colors.orange,bg=colors.none,style='bold'}
 	end
 
-	syntax['ColorColumn'] = {guifg='none',guibg=colors.base02,gui='none'}
-	syntax['Conceal'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['CursorColumn'] = {guifg='none',guibg=colors.base02,gui='none'}
-	syntax['Directory'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['EndOfBuffer'] = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none'}
-	syntax['ErrorMsg'] = {guifg=colors.red,guibg=colors.base3,gui='reverse'}
-	syntax['IncSearch'] = {guifg=colors.orange,guibg='none',gui='standout'}
-	syntax['MatchParen'] = {guifg=colors.base3,guibg=colors.base02,gui='bold'}
-	syntax['ModeMsg'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['MoreMsg'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['Pmenu'] = {guifg=colors.base1,guibg=colors.base02,gui='none'}
-	syntax['PmenuSbar'] = {guifg='none',guibg=colors.base01,gui='none'}
-	syntax['PmenuSel'] = {guifg=base2,guibg=colors.base00,gui='none'}
-	syntax['PmenuThumb'] = {guifg='none',guibg=colors.base0,gui='none'}
-	syntax['Question'] = {guifg=colors.cyan,guibg='none',gui='bold'}
-	syntax['Search'] = {guifg=colors.yellow,guibg='none',gui='reverse'}
-	syntax['SignColumn'] = {guifg=colors.base0,guibg='none',gui='none'}
-	syntax['Visual'] = {guifg=colors.base01,guibg=colors.base03,gui='reverse'}
-	syntax['VisualNOS'] = {guifg='none',guibg=colors.base02,gui='reverse'}
-	syntax['WarningMsg'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['WildMenu'] = {guifg=base2,guibg=colors.base02,gui='reverse'}
-	syntax['Comment'] = {guifg=colors.base01,guibg='none',gui=italics()}
-	syntax['Constant'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['CursorIM'] = {guifg='none',guibg=fg,gui='none'}
-	syntax['Error'] = {guifg=colors.red,guibg=colors.base3,gui='bold','reverse'}
-	syntax['Identifier'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['Ignore'] = {guifg='none',guibg='none',gui='none',ctermfg='none',ctermbg='none'}
-	syntax['PreProc'] = {guifg=colors.orange,guibg='none',gui='none'}
-	syntax['Special'] = {guifg=colors.orange,guibg='none',gui='none'}
-	syntax['Statement'] = {guifg=colors.green,guibg='none',gui='none'}
-	syntax['Todo'] = {guifg=colors.magenta,guibg='none',gui='bold'}
-	syntax['Type'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['Underlined'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['NormalMode'] = {guifg=colors.base0,guibg=colors.base3,gui='reverse'}
-	syntax['InsertMode'] = {guifg=colors.cyan,guibg=colors.base3,gui='reverse'}
-	syntax['ReplaceMode'] = {guifg=colors.orange,guibg=colors.base3,gui='reverse'}
-	syntax['VisualMode'] = {guifg=colors.magenta,guibg=colors.base3,gui='reverse'}
-	syntax['CommandMode'] = {guifg=colors.magenta,guibg=colors.base3,gui='reverse'}
-	syntax['vimCommentString'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['vimCommand'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['vimCmdSep'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['helpExample'] = {guifg=colors.base1,guibg='none',gui='none'}
-	syntax['helpOption'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['helpNote'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['helpVim'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['helpHyperTextJump'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['helpHyperTextEntry'] = {guifg=colors.green,guibg='none',gui='none'}
-	syntax['vimIsCommand'] = {guifg=colors.base00,guibg='none',gui='none'}
-	syntax['vimSynMtchOpt'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['vimSynType'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['vimHiLink'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['vimHiGroup'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['vimGroup'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['gitcommitComment'] = {guifg=colors.base01,guibg='none',gui=italics()}
-	syntax['gitcommitUnmerged'] = {guifg=colors.green,guibg='none',gui='bold'}
-	syntax['gitcommitOnBranch'] = {guifg=colors.base01,guibg='none',gui='bold'}
-	syntax['gitcommitBranch'] = {guifg=colors.magenta,guibg='none',gui='bold'}
-	syntax['gitcommitdiscardedtype'] = {guifg=colors.red,guibg='none',gui='none'}
-	syntax['gitcommitselectedtype'] = {guifg=colors.green,guibg='none',gui='none'}
-	syntax['gitcommitHeader'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['gitcommitUntrackedFile'] = {guifg=colors.cyan,guibg='none',gui='bold'}
-	syntax['gitcommitDiscardedFile'] = {guifg=colors.red,guibg='none',gui='bold'}
-	syntax['gitcommitSelectedFile'] = {guifg=colors.green,guibg='none',gui='bold'}
-	syntax['gitcommitUnmergedFile'] = {guifg=colors.yellow,guibg='none',gui='bold'}
-	syntax['gitcommitFile'] = {guifg=colors.base0,guibg='none',gui='bold'}
-	syntax['htmlTag'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['htmlEndTag'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['htmlTagN'] = {guifg=colors.base1,guibg='none',gui='bold'}
-	syntax['htmlTagName'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['htmlSpecialTagName'] = {guifg=colors.blue,guibg='none',gui=italics()}
-	syntax['htmlArg'] = {guifg=colors.base00,guibg='none',gui='none'}
-	syntax['javaScript'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['perlHereDoc'] = {guifg=colors.base1,guibg=colors.base03,gui='none'}
-	syntax['perlVarPlain'] = {guifg=colors.yellow,guibg=colors.base03,gui='none'}
-	syntax['perlStatementFileDesc'] = {guifg=colors.cyan,guibg=colors.base03,gui='none'}
-	syntax['texstatement'] = {guifg=colors.cyan,guibg=colors.base03,gui='none'}
-	syntax['texmathzonex'] = {guifg=colors.yellow,guibg=colors.base03,gui='none'}
-	syntax['texmathmatcher'] = {guifg=colors.yellow,guibg=colors.base03,gui='none'}
-	syntax['texreflabel'] = {guifg=colors.yellow,guibg=colors.base03,gui='none'}
-	syntax['rubyDefine'] = {guifg=colors.base1,guibg=colors.base03,gui='bold'}
-	syntax['rubyBoolean'] = {guifg=colors.magenta,guibg=colors.base03,gui='none'}
-	syntax['cPreCondit'] = {guifg=colors.orange,guibg='none',gui='none'}
-	syntax['VarId'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['ConId'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['hsImport'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['hsString'] = {guifg=colors.base00,guibg='none',gui='none'}
-	syntax['hsStructure'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['hs_hlFunctionName'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['hsStatement'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['hsImportLabel'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['hs_OpFunctionName'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['hs_DeclareFunction'] = {guifg=colors.orange,guibg='none',gui='none'}
-	syntax['hsVarSym'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['hsType'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['hsTypedef'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['hsModuleName'] = {guifg=colors.green,guibg='none',gui='none'}
-	syntax['pandocTitleBlock'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocTitleBlockTitle'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocTitleComment'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocComment'] = {guifg=colors.base01,guibg='none',gui=italics()}
-	syntax['pandocVerbatimBlock'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['pandocBlockQuote'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocBlockQuoteLeader1'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocBlockQuoteLeader2'] = {guifg=colors.cyan,guibg='none',gui='none'}
-	syntax['pandocBlockQuoteLeader3'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['pandocBlockQuoteLeader4'] = {guifg=colors.red,guibg='none',gui='none'}
-	syntax['pandocBlockQuoteLeader5'] = {guifg=colors.base0,guibg='none',gui='none'}
-	syntax['pandocBlockQuoteLeader6'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['pandocListMarker'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocListReference'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocDefinitionBlock'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['pandocDefinitionTerm'] = {guifg=colors.violet,guibg='none',gui='standout'}
-	syntax['pandocDefinitionIndctr'] = {guifg=colors.violet,guibg='none',gui='bold'}
-	syntax['pandocEmphasisDefinition'] = {guifg=colors.violet,guibg='none',gui=italics()}
-	syntax['pandocEmphasisNestedDefinition'] = {guifg=colors.violet,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisDefinition'] = {guifg=colors.violet,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisNestedDefinition'] = {guifg=colors.violet,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisEmphasisDefinition'] = {guifg=colors.violet,guibg='none',gui='bold'}
-	syntax['pandocStrikeoutDefinition'] = {guifg=colors.violet,guibg='none',gui='reverse'}
-	syntax['pandocVerbatimInlineDefinition'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['pandocSuperscriptDefinition'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['pandocSubscriptDefinition'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['pandocTable'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocTableStructure'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocTableZebraLight'] = {guifg=colors.blue,guibg=colors.base03,gui='none'}
-	syntax['pandocTableZebraDark'] = {guifg=colors.blue,guibg=colors.base02,gui='none'}
-	syntax['pandocEmphasisTable'] = {guifg=colors.blue,guibg='none',gui=italics()}
-	syntax['pandocEmphasisNestedTable'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisTable'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisNestedTable'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisEmphasisTable'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocStrikeoutTable'] = {guifg=colors.blue,guibg='none',gui='reverse'}
-	syntax['pandocVerbatimInlineTable'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocSuperscriptTable'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocSubscriptTable'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocHeadingMarker'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocEmphasisHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocEmphasisNestedHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisNestedHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisEmphasisHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocStrikeoutHeading'] = {guifg=colors.orange,guibg='none',gui='reverse'}
-	syntax['pandocVerbatimInlineHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocSuperscriptHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocSubscriptHeading'] = {guifg=colors.orange,guibg='none',gui='bold'}
-	syntax['pandocLinkDelim'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['pandocLinkLabel'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocLinkText'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocLinkURL'] = {guifg=colors.base00,guibg='none',gui='none'}
-	syntax['pandocLinkTitle'] = {guifg=colors.base00,guibg='none',gui='none'}
-	syntax['pandocLinkTitleDelim'] = {guifg=colors.base01,guibg='none',guisp=colors.base00,gui='none'}
-	syntax['pandocLinkDefinition'] = {guifg=colors.cyan,guibg='none',guisp=colors.base00,gui='none'}
-	syntax['pandocLinkDefinitionID'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocImageCaption'] = {guifg=colors.violet,guibg='none',gui='bold'}
-	syntax['pandocFootnoteLink'] = {guifg=colors.green,guibg='none',gui='none'}
-	syntax['pandocFootnoteDefLink'] = {guifg=colors.green,guibg='none',gui='bold'}
-	syntax['pandocFootnoteInline'] = {guifg=colors.green,guibg='none',gui='bold'}
-	syntax['pandocFootnote'] = {guifg=colors.green,guibg='none',gui='none'}
-	syntax['pandocCitationDelim'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocCitation'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocCitationID'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocCitationRef'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocStyleDelim'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['pandocEmphasis'] = {guifg=colors.base0,guibg='none',gui=italics()}
-	syntax['pandocEmphasisNested'] = {guifg=colors.base0,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasis'] = {guifg=colors.base0,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisNested'] = {guifg=colors.base0,guibg='none',gui='bold'}
-	syntax['pandocStrongEmphasisEmphasis'] = {guifg=colors.base0,guibg='none',gui='bold'}
-	syntax['pandocStrikeout'] = {guifg=colors.base01,guibg='none',gui='reverse'}
-	syntax['pandocVerbatimInline'] = {guifg=colors.yellow,guibg='none',gui='none'}
-	syntax['pandocSuperscript'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['pandocSubscript'] = {guifg=colors.violet,guibg='none',gui='none'}
-	syntax['pandocRule'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocRuleLine'] = {guifg=colors.blue,guibg='none',gui='bold'}
-	syntax['pandocEscapePair'] = {guifg=colors.red,guibg='none',gui='bold'}
-	syntax['pandocCitationRef'] = {guifg=colors.magenta,guibg='none',gui='none'}
-	syntax['pandocNonBreakingSpace'] = {guifg=colors.red,guibg='none',gui='reverse'}
-	syntax['pandocMetadataDelim'] = {guifg=colors.base01,guibg='none',gui='none'}
-	syntax['pandocMetadata'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocMetadataKey'] = {guifg=colors.blue,guibg='none',gui='none'}
-	syntax['pandocMetadata'] = {guifg=colors.blue,guibg='none',gui='bold'}
+	syntax['ColorColumn'] = {fg=colors.none,bg=colors.base02}
+	syntax['Conceal'] = {fg=colors.blue,bg=colors.none}
+	syntax['CursorColumn'] = {fg=colors.none,bg=colors.base02}
+	syntax['Directory'] = {fg=colors.blue,bg=colors.none}
+	syntax['EndOfBuffer'] = {fg=colors.none,bg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
+	syntax['ErrorMsg'] = {fg=colors.red,bg=colors.base3,style='reverse'}
+	syntax['IncSearch'] = {fg=colors.orange,bg=colors.none,style='standout'}
+	syntax['MatchParen'] = {fg=colors.base3,bg=colors.base02,style='bold'}
+	syntax['ModeMsg'] = {fg=colors.blue,bg=colors.none}
+	syntax['MoreMsg'] = {fg=colors.blue,bg=colors.none}
+	syntax['Pmenu'] = {fg=colors.base1,bg=colors.base02}
+	syntax['PmenuSbar'] = {fg=colors.none,bg=colors.base01}
+	syntax['PmenuSel'] = {fg=colors.base2,bg=colors.base00}
+	syntax['PmenuThumb'] = {fg=colors.none,bg=colors.base0}
+	syntax['Question'] = {fg=colors.cyan,bg=colors.none,style='bold'}
+	syntax['Search'] = {fg=colors.yellow,bg=colors.none,style='reverse'}
+	syntax['SignColumn'] = {fg=colors.base0,bg=colors.none}
+	syntax['Visual'] = {fg=colors.base01,bg=colors.base03,style='reverse'}
+	syntax['VisualNOS'] = {fg=colors.none,bg=colors.base02,style='reverse'}
+	syntax['WarningMsg'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['WildMenu'] = {fg=colors.base2,bg=colors.base02,style='reverse'}
+	syntax['Comment'] = {fg=colors.base01,bg=colors.none,style=utils.italics()}
+	syntax['Constant'] = {fg=colors.cyan,bg=colors.none}
+	syntax['CursorIM'] = {fg=colors.none,bg=colors.base1}
+	syntax['Error'] = {fg=colors.red,bg=colors.base3,style='bold','reverse'}
+	syntax['Identifier'] = {fg=colors.blue,bg=colors.none}
+	syntax['Ignore'] = {fg=colors.none,bg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
+	syntax['PreProc'] = {fg=colors.orange,bg=colors.none}
+	syntax['Special'] = {fg=colors.orange,bg=colors.none}
+	syntax['Statement'] = {fg=colors.green,bg=colors.none}
+	syntax['Todo'] = {fg=colors.magenta,bg=colors.none,style='bold'}
+	syntax['Type'] = {fg=colors.yellow,bg=colors.none}
+	syntax['Underlined'] = {fg=colors.violet,bg=colors.none}
+	syntax['NormalMode'] = {fg=colors.base0,bg=colors.base3,style='reverse'}
+	syntax['InsertMode'] = {fg=colors.cyan,bg=colors.base3,style='reverse'}
+	syntax['ReplaceMode'] = {fg=colors.orange,bg=colors.base3,style='reverse'}
+	syntax['VisualMode'] = {fg=colors.magenta,bg=colors.base3,style='reverse'}
+	syntax['CommandMode'] = {fg=colors.magenta,bg=colors.base3,style='reverse'}
+	syntax['vimCommentString'] = {fg=colors.violet,bg=colors.none}
+	syntax['vimCommand'] = {fg=colors.yellow,bg=colors.none}
+	syntax['vimCmdSep'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['helpExample'] = {fg=colors.base1,bg=colors.none}
+	syntax['helpOption'] = {fg=colors.cyan,bg=colors.none}
+	syntax['helpNote'] = {fg=colors.magenta,bg=colors.none}
+	syntax['helpVim'] = {fg=colors.magenta,bg=colors.none}
+	syntax['helpHyperTextJump'] = {fg=colors.blue,bg=colors.none}
+	syntax['helpHyperTextEntry'] = {fg=colors.green,bg=colors.none}
+	syntax['vimIsCommand'] = {fg=colors.base00,bg=colors.none}
+	syntax['vimSynMtchOpt'] = {fg=colors.yellow,bg=colors.none}
+	syntax['vimSynType'] = {fg=colors.cyan,bg=colors.none}
+	syntax['vimHiLink'] = {fg=colors.blue,bg=colors.none}
+	syntax['vimHiGroup'] = {fg=colors.blue,bg=colors.none}
+	syntax['vimGroup'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['gitcommitComment'] = {fg=colors.base01,bg=colors.none,style=utils.italics()}
+	syntax['gitcommitUnmerged'] = {fg=colors.green,bg=colors.none,style='bold'}
+	syntax['gitcommitOnBranch'] = {fg=colors.base01,bg=colors.none,style='bold'}
+	syntax['gitcommitBranch'] = {fg=colors.magenta,bg=colors.none,style='bold'}
+	syntax['gitcommitdiscardedtype'] = {fg=colors.red,bg=colors.none}
+	syntax['gitcommitselectedtype'] = {fg=colors.green,bg=colors.none}
+	syntax['gitcommitHeader'] = {fg=colors.base01,bg=colors.none}
+	syntax['gitcommitUntrackedFile'] = {fg=colors.cyan,bg=colors.none,style='bold'}
+	syntax['gitcommitDiscardedFile'] = {fg=colors.red,bg=colors.none,style='bold'}
+	syntax['gitcommitSelectedFile'] = {fg=colors.green,bg=colors.none,style='bold'}
+	syntax['gitcommitUnmergedFile'] = {fg=colors.yellow,bg=colors.none,style='bold'}
+	syntax['gitcommitFile'] = {fg=colors.base0,bg=colors.none,style='bold'}
+	syntax['htmlTag'] = {fg=colors.base01,bg=colors.none}
+	syntax['htmlEndTag'] = {fg=colors.base01,bg=colors.none}
+	syntax['htmlTagN'] = {fg=colors.base1,bg=colors.none,style='bold'}
+	syntax['htmlTagName'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['htmlSpecialTagName'] = {fg=colors.blue,bg=colors.none,style=utils.italics()}
+	syntax['htmlArg'] = {fg=colors.base00,bg=colors.none}
+	syntax['javaScript'] = {fg=colors.yellow,bg=colors.none}
+	syntax['perlHereDoc'] = {fg=colors.base1,bg=colors.base03}
+	syntax['perlVarPlain'] = {fg=colors.yellow,bg=colors.base03}
+	syntax['perlStatementFileDesc'] = {fg=colors.cyan,bg=colors.base03}
+	syntax['texstatement'] = {fg=colors.cyan,bg=colors.base03}
+	syntax['texmathzonex'] = {fg=colors.yellow,bg=colors.base03}
+	syntax['texmathmatcher'] = {fg=colors.yellow,bg=colors.base03}
+	syntax['texreflabel'] = {fg=colors.yellow,bg=colors.base03}
+	syntax['rubyDefine'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['rubyBoolean'] = {fg=colors.magenta,bg=colors.base03}
+	syntax['cPreCondit'] = {fg=colors.orange,bg=colors.none}
+	syntax['VarId'] = {fg=colors.blue,bg=colors.none}
+	syntax['ConId'] = {fg=colors.yellow,bg=colors.none}
+	syntax['hsImport'] = {fg=colors.magenta,bg=colors.none}
+	syntax['hsString'] = {fg=colors.base00,bg=colors.none}
+	syntax['hsStructure'] = {fg=colors.cyan,bg=colors.none}
+	syntax['hs_hlFunctionName'] = {fg=colors.blue,bg=colors.none}
+	syntax['hsStatement'] = {fg=colors.cyan,bg=colors.none}
+	syntax['hsImportLabel'] = {fg=colors.cyan,bg=colors.none}
+	syntax['hs_OpFunctionName'] = {fg=colors.yellow,bg=colors.none}
+	syntax['hs_DeclareFunction'] = {fg=colors.orange,bg=colors.none}
+	syntax['hsVarSym'] = {fg=colors.cyan,bg=colors.none}
+	syntax['hsType'] = {fg=colors.yellow,bg=colors.none}
+	syntax['hsTypedef'] = {fg=colors.cyan,bg=colors.none}
+	syntax['hsModuleName'] = {fg=colors.green,bg=colors.none}
+	syntax['pandocTitleBlock'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocTitleBlockTitle'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocTitleComment'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocComment'] = {fg=colors.base01,bg=colors.none,style=utils.italics()}
+	syntax['pandocVerbatimBlock'] = {fg=colors.yellow,bg=colors.none}
+	syntax['pandocBlockQuote'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocBlockQuoteLeader1'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocBlockQuoteLeader2'] = {fg=colors.cyan,bg=colors.none}
+	syntax['pandocBlockQuoteLeader3'] = {fg=colors.yellow,bg=colors.none}
+	syntax['pandocBlockQuoteLeader4'] = {fg=colors.red,bg=colors.none}
+	syntax['pandocBlockQuoteLeader5'] = {fg=colors.base0,bg=colors.none}
+	syntax['pandocBlockQuoteLeader6'] = {fg=colors.base01,bg=colors.none}
+	syntax['pandocListMarker'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocListReference'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocDefinitionBlock'] = {fg=colors.violet,bg=colors.none}
+	syntax['pandocDefinitionTerm'] = {fg=colors.violet,bg=colors.none,style='standout'}
+	syntax['pandocDefinitionIndctr'] = {fg=colors.violet,bg=colors.none,style='bold'}
+	syntax['pandocEmphasisDefinition'] = {fg=colors.violet,bg=colors.none,style=utils.italics()}
+	syntax['pandocEmphasisNestedDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisNestedDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisEmphasisDefinition'] = {fg=colors.violet,bg=colors.none,style='bold'}
+	syntax['pandocStrikeoutDefinition'] = {fg=colors.violet,bg=colors.none,style='reverse'}
+	syntax['pandocVerbatimInlineDefinition'] = {fg=colors.violet,bg=colors.none}
+	syntax['pandocSuperscriptDefinition'] = {fg=colors.violet,bg=colors.none}
+	syntax['pandocSubscriptDefinition'] = {fg=colors.violet,bg=colors.none}
+	syntax['pandocTable'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocTableStructure'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocTableZebraLight'] = {fg=colors.blue,bg=colors.base03}
+	syntax['pandocTableZebraDark'] = {fg=colors.blue,bg=colors.base02}
+	syntax['pandocEmphasisTable'] = {fg=colors.blue,bg=colors.none,style=utils.italics()}
+	syntax['pandocEmphasisNestedTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisNestedTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisEmphasisTable'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocStrikeoutTable'] = {fg=colors.blue,bg=colors.none,style='reverse'}
+	syntax['pandocVerbatimInlineTable'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocSuperscriptTable'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocSubscriptTable'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocHeadingMarker'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocEmphasisHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocEmphasisNestedHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisNestedHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisEmphasisHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocStrikeoutHeading'] = {fg=colors.orange,bg=colors.none,style='reverse'}
+	syntax['pandocVerbatimInlineHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocSuperscriptHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocSubscriptHeading'] = {fg=colors.orange,bg=colors.none,style='bold'}
+	syntax['pandocLinkDelim'] = {fg=colors.base01,bg=colors.none}
+	syntax['pandocLinkLabel'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocLinkText'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocLinkURL'] = {fg=colors.base00,bg=colors.none}
+	syntax['pandocLinkTitle'] = {fg=colors.base00,bg=colors.none}
+	syntax['pandocLinkTitleDelim'] = {fg=colors.base01,bg=colors.none,guisp=colors.base00}
+	syntax['pandocLinkDefinition'] = {fg=colors.cyan,bg=colors.none,guisp=colors.base00}
+	syntax['pandocLinkDefinitionID'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocImageCaption'] = {fg=colors.violet,bg=colors.none,style='bold'}
+	syntax['pandocFootnoteLink'] = {fg=colors.green,bg=colors.none}
+	syntax['pandocFootnoteDefLink'] = {fg=colors.green,bg=colors.none,style='bold'}
+	syntax['pandocFootnoteInline'] = {fg=colors.green,bg=colors.none,style='bold'}
+	syntax['pandocFootnote'] = {fg=colors.green,bg=colors.none}
+	syntax['pandocCitationDelim'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocCitation'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocCitationID'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocCitationRef'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocStyleDelim'] = {fg=colors.base01,bg=colors.none}
+	syntax['pandocEmphasis'] = {fg=colors.base0,bg=colors.none,style=utils.italics()}
+	syntax['pandocEmphasisNested'] = {fg=colors.base0,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasis'] = {fg=colors.base0,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisNested'] = {fg=colors.base0,bg=colors.none,style='bold'}
+	syntax['pandocStrongEmphasisEmphasis'] = {fg=colors.base0,bg=colors.none,style='bold'}
+	syntax['pandocStrikeout'] = {fg=colors.base01,bg=colors.none,style='reverse'}
+	syntax['pandocVerbatimInline'] = {fg=colors.yellow,bg=colors.none}
+	syntax['pandocSuperscript'] = {fg=colors.violet,bg=colors.none}
+	syntax['pandocSubscript'] = {fg=colors.violet,bg=colors.none}
+	syntax['pandocRule'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocRuleLine'] = {fg=colors.blue,bg=colors.none,style='bold'}
+	syntax['pandocEscapePair'] = {fg=colors.red,bg=colors.none,style='bold'}
+	syntax['pandocCitationRef'] = {fg=colors.magenta,bg=colors.none}
+	syntax['pandocNonBreakingSpace'] = {fg=colors.red,bg=colors.none,style='reverse'}
+	syntax['pandocMetadataDelim'] = {fg=colors.base01,bg=colors.none}
+	syntax['pandocMetadata'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocMetadataKey'] = {fg=colors.blue,bg=colors.none}
+	syntax['pandocMetadata'] = {fg=colors.blue,bg=colors.none,style='bold'}
 
 	syntax['Boolean'] = syntax['Constant']
 	syntax['Character'] = syntax['Constant']
@@ -418,7 +381,7 @@ function M.load_syntax()
 	syntax['TSString'] = syntax['Constant']
 	syntax['TSStringRegex'] = syntax['Constant']
 	syntax['TSStringEscape'] = syntax['Constant']
-	syntax['TSStrong'] = {guifg=colors.base1,guibg=colors.base03,gui='bold'}
+	syntax['TSStrong'] = {fg=colors.base1,bg=colors.base03,style='bold'}
 	syntax['TSConstructor'] = syntax['Function']
 	syntax['TSKeywordFunction'] = syntax['Identifier']
 	syntax['TSLiteral'] = syntax['Normal']
@@ -432,10 +395,10 @@ function M.load_syntax()
 	syntax['TSTypeBuiltin'] = syntax['Type']
 	-- syntax['TSEmphasis'] = syntax['']
 
-	syntax['LspDiagnosticsDefaultError'] = {guifg=colors.red,guibg='none',guisp=colors.red,gui='undercurl'}
-	syntax['LspDiagnosticsDefaultInformation'] = {guifg=colors.cyan,guibg='none',guisp=colors.cyan,gui='undercurl'}
-	syntax['LspDiagnosticsDefaultWarning'] = {guifg=colors.yellow,guibg='none',guisp=colors.yellow,gui='undercurl'}
-	syntax['LspDiagnosticsDefaultHint'] = {guifg=colors.green,guibg='none',guisp=colors.green,gui='undercurl'}
+	syntax['LspDiagnosticsDefaultError'] = {fg=colors.red,bg=colors.none,guisp=colors.red,style='undercurl'}
+	syntax['LspDiagnosticsDefaultInformation'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='undercurl'}
+	syntax['LspDiagnosticsDefaultWarning'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='undercurl'}
+	syntax['LspDiagnosticsDefaultHint'] = {fg=colors.green,bg=colors.none,guisp=colors.green,style='undercurl'}
 	syntax['LspDiagnosticsUnderlineError'] = syntax['LspDiagnosticsDefaultError']
 	syntax['LspDiagnosticsUnderlineWarning'] = syntax['LspDiagnosticsDefaultWarning']
 	syntax['LspDiagnosticsUnderlineInformation'] = syntax['LspDiagnosticsDefaultInformation']
@@ -450,7 +413,7 @@ function M.load_syntax()
 	syntax['TargetWord'] = syntax['Title']
 
 	for group, colors in pairs(syntax) do
-		setup(group, colors)
+		utils.highlighter(group, colors)
 	end
 end
 
