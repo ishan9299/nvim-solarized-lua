@@ -3,6 +3,11 @@
 This aims to be a complete port [vim-solarized8](https://github.com/lifepillar/vim-solarized8) with support for lua
 plugins, LSP and Treesitter for neovim 0.5.
 
+## NOTE
+Also added 8 bit color support.(Can't be a complete port if the theme isn't accessible for all neovim users.)
+I used this Javascript [code](https://gist.github.com/ishan9299/d87713b43dc04d49fa060711fdc7dd6d) to convert the rgb to
+neared 8 bit color.
+
 ## Dark Theme
 
 ![Screenshot from 2021-04-01 15-11-51](https://user-images.githubusercontent.com/47824004/113275791-c9346480-92fc-11eb-8878-2504eda2a5c9.png)
