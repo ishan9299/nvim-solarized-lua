@@ -33,28 +33,28 @@ function M.load_syntax()
 		syntax['CursorLineNr'] = {fg=colors.orange,bg=colors.none,style='bold'}
 		syntax['NonText'] = {fg=colors.orange,bg=colors.none,style='bold'}
 		syntax['SpecialKey'] = {fg=colors.orange,bg=colors.none,style='reverse'}
-		syntax['SpellBad'] = {fg=colors.violet,bg=colors.base2,guisp=colors.red,style='reverse,undercurl'}
-		syntax['SpellCap'] = {fg=colors.violet,bg=colors.base2,guisp=colors.red,style='reverse,undercurl'}
-		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.base2,guisp=colors.red,style='reverse,undercurl'}
-		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.base2,guisp=colors.red,style='reverse,undercurl'}
+		syntax['SpellBad'] = {fg=colors.violet,bg=colors.base2,guisp=colors.red,style='reverse,underline'}
+		syntax['SpellCap'] = {fg=colors.violet,bg=colors.base2,guisp=colors.red,style='reverse,underline'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.base2,guisp=colors.red,style='reverse,underline'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.base2,guisp=colors.red,style='reverse,underline'}
 		syntax['Title'] = {fg=colors.yellow,bg=colors.none,style='bold',cterm='bold'}
 	elseif g.solarized_visibility == 'low' then
 		syntax['CursorLineNr'] = {fg=colors.base01,bg=colors.none,style='bold'}
 		syntax['NonText'] = {fg=colors.base02,bg=colors.none,style='bold'}
 		syntax['SpecialKey'] = {fg=colors.base02,bg=colors.none,style='reverse'}
-		syntax['SpellBad'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='undercurl'}
-		syntax['SpellCap'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='undercurl'}
-		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='undercurl'}
-		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='undercurl'}
+		syntax['SpellBad'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='underline'}
+		syntax['SpellCap'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='underline'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='underline'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='underline'}
 		syntax['Title'] = {fg=colors.base01,bg=colors.none,style='bold',cterm='bold'}
 	else
 		syntax['CursorLineNr'] = {fg=colors.base0,bg=colors.none,style='bold'}
 		syntax['NonText'] = {fg=colors.base00,bg=colors.none,style='bold'}
 		syntax['SpecialKey'] = {fg=colors.base00,bg=colors.base02,style='bold'}
-		syntax['SpellBad'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='undercurl'}
-		syntax['SpellCap'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='undercurl'}
-		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='undercurl'}
-		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='undercurl'}
+		syntax['SpellBad'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='underline'}
+		syntax['SpellCap'] = {fg=colors.violet,bg=colors.none,guisp=colors.violet,style='underline'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='underline'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='underline'}
 		syntax['Title'] = {fg=colors.orange,bg=colors.none,style='bold',cterm='bold'}
 	end
 
@@ -390,10 +390,10 @@ function M.load_syntax()
 	syntax['TSTypeBuiltin'] = syntax['Type']
 	-- syntax['TSEmphasis'] = syntax['']
 
-	syntax['LspDiagnosticsDefaultError'] = {fg=colors.red,bg=colors.none,guisp=colors.red,style='undercurl'}
-	syntax['LspDiagnosticsDefaultInformation'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='undercurl'}
-	syntax['LspDiagnosticsDefaultWarning'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='undercurl'}
-	syntax['LspDiagnosticsDefaultHint'] = {fg=colors.green,bg=colors.none,guisp=colors.green,style='undercurl'}
+	syntax['LspDiagnosticsDefaultError'] = {fg=colors.red,bg=colors.none,guisp=colors.red,style='underline'}
+	syntax['LspDiagnosticsDefaultInformation'] = {fg=colors.cyan,bg=colors.none,guisp=colors.cyan,style='underline'}
+	syntax['LspDiagnosticsDefaultWarning'] = {fg=colors.yellow,bg=colors.none,guisp=colors.yellow,style='underline'}
+	syntax['LspDiagnosticsDefaultHint'] = {fg=colors.green,bg=colors.none,guisp=colors.green,style='underline'}
 	syntax['LspDiagnosticsUnderlineError'] = syntax['LspDiagnosticsDefaultError']
 	syntax['LspDiagnosticsUnderlineWarning'] = syntax['LspDiagnosticsDefaultWarning']
 	syntax['LspDiagnosticsUnderlineInformation'] = syntax['LspDiagnosticsDefaultInformation']
