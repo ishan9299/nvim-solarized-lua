@@ -120,3 +120,6 @@ This is the low contrast option.
   you are using.
 - If any more plugins are needed then open an issue.
 - Only termguicolors are supported
+
+## Maybe Checkout
+- [modus-theme-vim](https://github.com/ishan9299/modus-theme-vim)
