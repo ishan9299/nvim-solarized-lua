@@ -94,6 +94,10 @@ This is the flat variant.
 This is the low contrast option.  
 `vim.cmd('colorscheme solarized-low')`
 
+## Screenshots
+![Screenshot from 2021-05-12 10-01-23](https://user-images.githubusercontent.com/47824004/117919013-e00da400-b309-11eb-845a-a54f675e7a90.png)
+
+
 ## TODO
 
 - ~~The light colorscheme~~
