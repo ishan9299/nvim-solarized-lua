@@ -8,15 +8,6 @@ Also added 8 bit color support.(Can't be a complete port if the theme isn't acce
 I used this Javascript [code](https://gist.github.com/ishan9299/d87713b43dc04d49fa060711fdc7dd6d) to convert the rgb to
 neared 8 bit color.
 
-## Dark Theme
-
-![Screenshot from 2021-04-01 15-11-51](https://user-images.githubusercontent.com/47824004/113275791-c9346480-92fc-11eb-8878-2504eda2a5c9.png)
-
-
-## Light Theme
-
-![Screenshot from 2021-04-01 15-10-21](https://user-images.githubusercontent.com/47824004/113275723-b4f06780-92fc-11eb-97e6-23dce847e0a7.png)
-
 ## Installation
 
 ### VIM Packages
@@ -72,7 +63,7 @@ end
 - **statusline**
   + low
   + flat
-  + normal (default)  
+  + normal (default)
 
  ```lua
  vim.g.solarized_statusline = 'normal'
@@ -119,7 +110,6 @@ This is the low contrast option.
 - If you have an issue with the highlight groups in theme open an issue but also mention the variant of the colorscheme
   you are using.
 - If any more plugins are needed then open an issue.
-- Only termguicolors are supported
 
 ## Maybe Checkout
 - [modus-theme-vim](https://github.com/ishan9299/modus-theme-vim)
