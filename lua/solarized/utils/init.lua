@@ -45,7 +45,7 @@ end
 
 function M.termtrans(color)
 	if vim.g.solarized_termtrans == 1 then
-		return 'none'
+		return {'none', 'none'}
 	else
 		return color
 	end
