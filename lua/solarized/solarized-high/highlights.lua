@@ -427,6 +427,15 @@ function M.load_syntax()
 	syntax['DiagnosticHint'] = syntax['LspDiagnosticsDefaultHint'] 
 	syntax['TargetWord'] = syntax['Title']
 
+	syntax['GitSignsAdd'] = syntax['DiffAdd']
+	syntax['GitSignsChange'] = syntax['DiffChange']
+	syntax['GitSignsDelete'] = syntax['DiffDelete']
+	-- syntax['GitSignsAddNr'] = syntax['DiffAdd']
+	-- syntax['GitSignsChangeNr'] = syntax['DiffChange']
+	-- syntax['GitSignsDeleteNr'] = syntax['DiffDelete']
+	-- syntax['GitSignsAddLn'] = syntax['DiffAdd']
+	-- syntax['GitSignsChangeLn'] = syntax['DiffChange']
+	-- syntax['GitSignsDeleteLn'] = syntax['DiffDelete']
 
 	for group, colors in pairs(syntax) do
 		utils.highlighter(group, colors)
