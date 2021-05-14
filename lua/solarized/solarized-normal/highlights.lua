@@ -32,6 +32,7 @@ function M.load_syntax()
 	syntax['ToolbarLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
 	syntax['CursorLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
 	syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)}
+	syntax['FloatBorder'] = {fg=colors.base1, bg=colors.none}
 
 	if g.solarized_diffmode == 'low' then
 		syntax['DiffAdd'] = {fg=colors.green, bg=colors.none, guisp=colors.green}
@@ -56,21 +57,21 @@ function M.load_syntax()
 		syntax['TabLine'] = {fg=colors.base01, bg=colors.base02, style='reverse'}
 		syntax['TabLineFill'] = {fg=colors.base01, bg=colors.base02, style='reverse'}
 		syntax['TabLineSel'] = {fg=colors.base0, bg=colors.base3, style='reverse'}
-		syntax['VertSplit'] = {fg=colors.base02, bg=colors.base01}
+		syntax['VertSplit'] = {fg=colors.base01, bg=colors.none}
 	elseif g.solarized_statusline == 'flat' then
 		syntax['StatusLine'] = {fg=colors.base02, bg=colors.base2, style='reverse'}
 		syntax['StatusLineNC'] = {fg=colors.base02, bg=colors.base1, style='reverse'}
 		syntax['TabLineSel'] = {fg=colors.base2, bg=colors.base02}
 		syntax['TabLine'] = {fg=colors.base01, bg=colors.base02}
 		syntax['TabLineFill'] = {fg=colors.base01, bg=colors.base02}
-		syntax['VertSplit'] = {fg=colors.base01, bg=colors.base02}
+		syntax['VertSplit'] = {fg=colors.base02, bg=colors.none}
 	else
 		syntax['StatusLine'] = {fg=colors.base0,bg=colors.base02,style='reverse'}
 		syntax['StatusLineNC'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
 		syntax['TabLine'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
 		syntax['TabLineFill'] = {fg=colors.base01,bg=colors.base02,style='reverse'}
 		syntax['TabLineSel'] = {fg=colors.base0,bg=colors.base02,style='reverse'}
-		syntax['VertSplit'] = {fg=colors.base02,bg=colors.base01}
+		syntax['VertSplit'] = {fg=colors.base01,bg=colors.none}
 	end
 
 	if g.solarized_visibility == 'high' then

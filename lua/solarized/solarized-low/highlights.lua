@@ -88,7 +88,7 @@ function M.load_syntax()
 		syntax['TabLine'] = {fg=colors.base1,bg=colors.base01,style='reverse'}
 		syntax['TabLineFill'] = {fg=colors.base1,bg=colors.base01,style='reverse'}
 		syntax['TabLineSel'] = {fg=colors.base1,bg=colors.base2,style='reverse'}
-		syntax['VertSplit'] = {fg=colors.base01,bg=colors.base1}
+		syntax['VertSplit'] = {fg=colors.base1,bg=colors.none}
 		syntax['WildMenu'] = {fg=colors.base00,bg=colors.base2,style='reverse'}
 	elseif g.solarized_statusline == 'flat' then
 		syntax['StatusLine'] = {fg=colors.base3,bg=colors.base02,style='reverse'}
@@ -96,7 +96,7 @@ function M.load_syntax()
 		syntax['TabLineSel'] = {fg=colors.base02,bg=colors.base3}
 		syntax['TabLine'] = {fg=colors.base1,bg=colors.base3}
 		syntax['TabLineFill'] = {fg=colors.base1,bg=colors.base3}
-		syntax['VertSplit'] = {fg=colors.base1,bg=colors.base3}
+		syntax['VertSplit'] = {fg=colors.base3,bg=colors.none}
 		syntax['WildMenu'] = {fg=colors.base1,bg=colors.base3,style='reverse'}
 	else
 		syntax['StatusLine'] = {fg=colors.base01,bg=colors.base2,style='reverse'}
@@ -104,7 +104,7 @@ function M.load_syntax()
 		syntax['TabLine'] = {fg=colors.base0,bg=colors.base2,style='reverse'}
 		syntax['TabLineFill'] = {fg=colors.base0,bg=colors.base2,style='reverse'}
 		syntax['TabLineSel'] = {fg=colors.base01,bg=colors.base2,style='reverse'}
-		syntax['VertSplit'] = {fg=colors.base01,bg=colors.base1}
+		syntax['VertSplit'] = {fg=colors.base1,bg=colors.none}
 		syntax['WildMenu'] = {fg=colors.base0,bg=colors.base2,style='reverse'}
 	end
 
@@ -301,6 +301,7 @@ function M.load_syntax()
 	syntax['Delimiter'] = syntax['Special']
 	syntax['Exception'] = syntax['Statement']
 	syntax['Float'] = syntax['Constant']
+	syntax['FloatBorder'] = syntax['VertSplit']
 	syntax['Function'] = syntax['Identifier']
 	syntax['Include'] = syntax['PreProc']
 	syntax['Keyword'] = syntax['Statement']

@@ -114,7 +114,7 @@ function M.load_syntax()
 	syntax['SignColumn'] = {fg=colors.base0,bg=colors.none}
 	syntax['TabLine'] = {fg=colors.base01,bg=colors.base02}
 	syntax['TabLineFill'] = {fg=colors.base01,bg=colors.base02}
-	syntax['VertSplit'] = {fg=colors.base01,bg=colors.base02}
+	syntax['VertSplit'] = {fg=colors.base01,bg=colors.none}
 	syntax['Visual'] = {fg=colors.base01,bg=colors.base03,style='reverse'}
 	syntax['VisualNOS'] = {fg=colors.none,bg=colors.base02,style='reverse'}
 	syntax['WarningMsg'] = {fg=colors.orange,bg=colors.none,style='bold'}
@@ -285,6 +285,7 @@ function M.load_syntax()
 	syntax['pandocMetadataKey'] = {fg=colors.blue,bg=colors.none}
 	syntax['pandocMetadata'] = {fg=colors.blue,bg=colors.none,style='bold'}
 
+	-- link
 	syntax['Boolean'] = syntax['Constant']
 	syntax['Character'] = syntax['Constant']
 	syntax['Conditional'] = syntax['Statement']
@@ -293,6 +294,7 @@ function M.load_syntax()
 	syntax['Delimiter'] = syntax['Special']
 	syntax['Exception'] = syntax['Statement']
 	syntax['Float'] = syntax['Constant']
+	syntax['FloatBorder'] = syntax['VertSplit']
 	syntax['Function'] = syntax['Identifier']
 	syntax['Include'] = syntax['PreProc']
 	syntax['Keyword'] = syntax['Statement']
