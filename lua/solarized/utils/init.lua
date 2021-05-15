@@ -21,6 +21,7 @@ function M.highlighter(group, colors)
 	-- setup funtion
 	colors.guisp = colors.guisp or 'none'
 	colors.style = colors.style or 'none'
+	colors.bg = colors.bg or colors.none
 	local g_foreground = colors.fg[1]
 	local c_foreground = colors.fg[2]
 	local g_background = colors.bg[1]
