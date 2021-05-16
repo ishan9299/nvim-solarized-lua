@@ -4,6 +4,7 @@ local g = vim.g
 local o = vim.o
 local fn = vim.fn
 local utils = require('solarized.utils')
+local colors
 
 if o.bg == 'dark' then
 	colors = require('solarized.solarized-high.solarized-dark').setup()
@@ -422,10 +423,10 @@ function M.load_syntax()
 	syntax['LspDiagnosticsUnderlineHint'] = syntax['LspDiagnosticsDefaultHint']
 
 	syntax['LspSagaFinderSelection'] = syntax['Search']
-	syntax['DiagnosticError'] = syntax['LspDiagnosticsDefaultError'] 
-	syntax['DiagnosticWarning'] = syntax['LspDiagnosticsDefaultWarning'] 
-	syntax['DiagnosticInformation'] = syntax['LspDiagnosticsDefaultInformation'] 
-	syntax['DiagnosticHint'] = syntax['LspDiagnosticsDefaultHint'] 
+	syntax['DiagnosticError'] = syntax['LspDiagnosticsDefaultError']
+	syntax['DiagnosticWarning'] = syntax['LspDiagnosticsDefaultWarning']
+	syntax['DiagnosticInformation'] = syntax['LspDiagnosticsDefaultInformation']
+	syntax['DiagnosticHint'] = syntax['LspDiagnosticsDefaultHint']
 	syntax['TargetWord'] = syntax['Title']
 
 	syntax['GitSignsAdd'] = syntax['DiffAdd']
@@ -438,8 +439,8 @@ function M.load_syntax()
 	-- syntax['GitSignsChangeLn'] = syntax['DiffChange']
 	-- syntax['GitSignsDeleteLn'] = syntax['DiffDelete']
 
-	for group, colors in pairs(syntax) do
-		utils.highlighter(group, colors)
+	for group, highlights in pairs(syntax) do
+		utils.highlighter(group, highlights)
 	end
 end
 
