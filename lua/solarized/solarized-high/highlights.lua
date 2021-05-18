@@ -439,6 +439,10 @@ function M.load_syntax()
 	-- syntax['GitSignsChangeLn'] = syntax['DiffChange']
 	-- syntax['GitSignsDeleteLn'] = syntax['DiffDelete']
 
+	syntax['VGitSignAdd'] = syntax['DiffAdd']
+	syntax['VgitSignChange'] = syntax['DiffChange']
+	syntax['VGitSignRemove'] = syntax['DiffDelete']
+
 	for group, highlights in pairs(syntax) do
 		utils.highlighter(group, highlights)
 	end
