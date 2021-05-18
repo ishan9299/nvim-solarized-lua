@@ -76,37 +76,34 @@ function M.load_syntax()
 	end
 
 	if g.solarized_visibility == 'high' then
-		syntax['CursorLineNr'] = {fg=colors.red,bg=colors.base02,style='bold'}
-		syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)} -- trans
-		syntax['MatchParen'] = {fg=colors.base3,bg=colors.base0,style='bold'}
-		syntax['NonText'] = {fg=colors.red,style='bold'}
-		syntax['SpecialKey'] = {fg=colors.red,style='reverse'}
-		syntax['SpellBad'] = {fg=colors.magenta,bg=colors.base3,guisp=colors.violet,style='underline'}
-		syntax['SpellCap'] = {fg=colors.magenta,bg=colors.base3,guisp=colors.violet,style='underline'}
-		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.base3,guisp=colors.orange,style='underline'}
-		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.base3,guisp=colors.orange,style='underline'}
-		syntax['Title'] = {fg=colors.orange,style='bold'}
+		syntax['CursorLineNr'] = {fg=colors.orange,bg=colors.base02,style='bold'}
+		syntax['LineNr'] = {fg=colors.base0,bg=colors.base02,}
+		syntax['NonText'] = {fg=colors.orange,style='bold'}
+		syntax['SpecialKey'] = {fg=colors.orange,style='reverse'}
+		syntax['SpellBad'] = {fg=colors.violet,bg=colors.base3,guisp=colors.red,style='reverse,undercurl'}
+		syntax['SpellCap'] = {fg=colors.violet,bg=colors.base3,guisp=colors.red,style='reverse,undercurl'}
+		syntax['SpellLocal'] = {fg=colors.yellow,bg=colors.base3,guisp=colors.red,style='reverse,undercurl'}
+		syntax['SpellRare'] = {fg=colors.cyan,bg=colors.base3,guisp=colors.red,style='reverse,undercurl'}
+		syntax['Title'] = {fg=colors.yellow,style='bold'}
 	elseif g.solarized_visibility == 'low' then
-		syntax['CursorLineNr'] = {fg=colors.base1,bg=colors.base02,style='bold'}
-		syntax['LineNr'] = {fg=colors.base1,bg=utils.termtrans(colors.base02)}
-		syntax['MatchParen'] = {fg=colors.red,bg=colors.base2,style='bold,underline'}
-		syntax['NonText'] = {fg=colors.base2,style='bold'}
-		syntax['SpecialKey'] = {fg=colors.base2,style='bold'}
-		syntax['SpellBad'] = {fg=colors.magenta,guisp=colors.violet,style='underline'}
-		syntax['SpellCap'] = {fg=colors.magenta,guisp=colors.violet,style='underline'}
-		syntax['SpellLocal'] = {fg=colors.yellow,guisp=colors.yellow,style='underline'}
-		syntax['SpellRare'] = {fg=colors.cyan,guisp=colors.cyan,style='underline'}
-		syntax['Title'] = {fg=colors.base1,style='bold'}
+		syntax['CursorLineNr'] = {fg=colors.base01,bg=colors.base02,style='bold'}
+		syntax['LineNr'] = {fg=colors.base01,bg=colors.base02,}
+		syntax['NonText'] = {fg=colors.base02,style='bold'}
+		syntax['SpecialKey'] = {fg=colors.base02,style='reverse'}
+		syntax['SpellBad'] = {fg=colors.violet,guisp=colors.violet,style='undercurl'}
+		syntax['SpellCap'] = {fg=colors.violet,guisp=colors.violet,style='undercurl'}
+		syntax['SpellLocal'] = {fg=colors.yellow,guisp=colors.yellow,style='undercurl'}
+		syntax['SpellRare'] = {fg=colors.cyan,guisp=colors.cyan,style='undercurl'}
+		syntax['Title'] = {fg=colors.base01,style='bold'}
 	else
 		syntax['CursorLineNr'] = {fg=colors.base0,bg=colors.base02,style='bold'}
-		syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)}
-		syntax['MatchParen'] = {fg=colors.base3,bg=colors.base02,style='bold'}
+		syntax['LineNr'] = {fg=colors.base00,bg=colors.base02,}
 		syntax['NonText'] = {fg=colors.base00,style='bold'}
 		syntax['SpecialKey'] = {fg=colors.base00,bg=colors.base02,style='bold'}
-		syntax['SpellBad'] = {fg=colors.violet,guisp=colors.violet,style='underline'}
-		syntax['SpellCap'] = {fg=colors.violet,guisp=colors.violet,style='underline'}
-		syntax['SpellLocal'] = {fg=colors.yellow,guisp=colors.yellow,style='underline'}
-		syntax['SpellRare'] = {fg=colors.cyan,guisp=colors.cyan,style='underline'}
+		syntax['SpellBad'] = {fg=colors.violet,guisp=colors.violet,style='undercurl'}
+		syntax['SpellCap'] = {fg=colors.violet,guisp=colors.violet,style='undercurl'}
+		syntax['SpellLocal'] = {fg=colors.yellow,guisp=colors.yellow,style='undercurl'}
+		syntax['SpellRare'] = {fg=colors.cyan,guisp=colors.cyan,style='undercurl'}
 		syntax['Title'] = {fg=colors.orange,style='bold'}
 	end
 
