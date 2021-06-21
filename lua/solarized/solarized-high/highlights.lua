@@ -448,7 +448,7 @@ function M.load_syntax()
 	end
 end
 
-function terminal_colors()
+function M.terminal_colors()
 	g.terminal_color_0 = colors.base02[1] -- '#073642'
 	g.terminal_color_1 = colors.red[1] -- '#dc322f'
 	g.terminal_color_2 = colors.green[1] -- '#859900'
