@@ -448,4 +448,24 @@ function M.load_syntax()
 	end
 end
 
+function terminal_colors()
+	g.terminal_color_0 = colors.base02[1] -- '#073642'
+	g.terminal_color_1 = colors.red[1] -- '#dc322f'
+	g.terminal_color_2 = colors.green[1] -- '#859900'
+	g.terminal_color_3 = colors.yellow[1] -- '#b58900'
+	g.terminal_color_4 = colors.blue[1] -- '#268bd2'
+	g.terminal_color_5 = colors.magenta[1] -- '#d33682'
+	g.terminal_color_6 = colors.cyan[1] -- '#2aa198'
+	g.terminal_color_7 = colors.base2[1] -- '#eee8d5'
+	g.terminal_color_8 = colors.base03[1] -- '#002b36'
+	g.terminal_color_9 = colors.orange[1] -- '#cb4b16'
+	g.terminal_color_10 = colors.base01[1] -- '#586e75'
+	g.terminal_color_11 = colors.base00[1] -- '#657b83'
+	g.terminal_color_12 = colors.base0[1] -- '#839496'
+	g.terminal_color_13 = colors.violet[1] -- '#6c71c4'
+	g.terminal_color_14 = colors.base1[1] -- '#93a1a1'
+	g.terminal_color_15 = colors.base3[1] -- '#fdf6e3'
+end
+
 M.load_syntax()
+M.terminal_colors()
