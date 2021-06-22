@@ -128,7 +128,7 @@ function M.load_syntax()
 	syntax['WildMenu'] = {fg=colors.base3,bg=colors.base02,style='reverse'}
 	syntax['Comment'] = {fg=colors.base00,style=utils.italics()}
 	syntax['Constant'] = {fg=colors.cyan}
-	syntax['Error'] = {fg=colors.red,bg=colors.base3,style='bold,reverse'}
+	syntax['Error'] = {fg=colors.red,bg=colors.err_bg,style='bold,reverse'}
 	syntax['Identifier'] = {fg=colors.blue}
 	syntax['Ignore'] = {fg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
 	syntax['PreProc'] = {fg=colors.orange}

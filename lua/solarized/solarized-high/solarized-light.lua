@@ -19,7 +19,8 @@ function M.setup()
 		violet  = {'#6c71c4',111},
 		base01  = {'#93a1a1',150},
 		base03  = {'#fdf6e3',253},
-		back    = {'#fdf6e3',253}
+		back    = {'#fdf6e3',253},
+		err_bg = {'#fdf6e3',253}
 	}
 	return highlight
 end

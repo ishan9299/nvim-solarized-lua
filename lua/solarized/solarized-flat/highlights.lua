@@ -123,7 +123,7 @@ function M.load_syntax()
 	syntax['Comment'] = {fg=colors.base01,style=utils.italics()}
 	syntax['Constant'] = {fg=colors.cyan}
 	syntax['CursorIM'] = {fg=colors.none,bg=colors.base0}
-	syntax['Error'] = {fg=colors.red,bg=colors.base3,style='bold,reverse'}
+	syntax['Error'] = {fg=colors.red,bg=colors.err_bg,style='bold,reverse'}
 	syntax['Identifier'] = {fg=colors.blue}
 	syntax['Ignore'] = {fg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
 	syntax['PreProc'] = {fg=colors.orange}
