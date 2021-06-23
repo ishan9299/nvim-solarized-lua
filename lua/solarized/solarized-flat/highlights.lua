@@ -98,7 +98,7 @@ function M.load_syntax()
 	syntax['CursorColumn'] = {fg=colors.none,bg=colors.base02}
 	syntax['Directory'] = {fg=colors.blue}
 	syntax['EndOfBuffer'] = {fg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
-	syntax['ErrorMsg'] = {fg=colors.red,bg=colors.base3,style='reverse'}
+	syntax['ErrorMsg'] = {fg=colors.red,bg=colors.err_bg,style='reverse'}
 	syntax['FoldColumn'] = {fg=colors.base0}
 	syntax['Folded'] = {fg=colors.base0,guisp=colors.base03,style='bold'}
 	syntax['IncSearch'] = {fg=colors.orange,style='standout'}
