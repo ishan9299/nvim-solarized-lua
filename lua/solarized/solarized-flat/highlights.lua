@@ -6,12 +6,6 @@ local fn = vim.fn
 local utils = require('solarized.utils')
 local colors
 
-if o.bg == 'dark' then
-	colors = require('solarized.solarized-flat.solarized-dark').setup()
-else
-	colors = require('solarized.solarized-flat.solarized-light').setup()
-end
-
 cmd('hi clear')
 
 utils.default_settings()
@@ -22,7 +16,7 @@ end
 
 g.colors_name = 'solarized-flat'
 
-function M.load_syntax()
+function M.load_syntax(colors)
 	local syntax = {}
 	syntax['Normal'] = {fg=colors.base0,bg=utils.termtrans(colors.base03)}
 	syntax['CursorLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
@@ -422,7 +416,7 @@ function M.load_syntax()
 	end
 end
 
-function M.terminal_colors()
+function M.terminal_colors(colors)
 	g.terminal_color_0 = colors.base02[1] -- '#073642'
 	g.terminal_color_1 = colors.red[1] -- '#dc322f'
 	g.terminal_color_2 = colors.green[1] -- '#859900'
@@ -441,5 +435,4 @@ function M.terminal_colors()
 	g.terminal_color_15 = colors.base3[1] -- '#fdf6e3'
 end
 
-M.load_syntax()
-M.terminal_colors()
+return M
