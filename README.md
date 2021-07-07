@@ -49,10 +49,10 @@ vim.g.solarized_diffmode = 'normal'
 ```
 
 - **termtrans**
-If you want to keep the tranperency in your terminal (default: disabled)
+If you want to keep the transparency in your terminal (default: disabled)
 
 ```lua
--- To enable transperancy
+-- To enable transparency
 if vim.fn.has('gui_running') == 0 then
     vim.g.solarized_termtrans = 0
 else
