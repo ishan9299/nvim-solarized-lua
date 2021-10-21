@@ -387,14 +387,14 @@ function M.load_syntax(colors)
 	syntax['TSTypeBuiltin'] = syntax['Type']
 	-- syntax['TSEmphasis'] = syntax['']
 
-	syntax['LspDiagnosticsDefaultError'] = {fg=colors.red,guisp=colors.red,style='underline'}
-	syntax['LspDiagnosticsDefaultInformation'] = {fg=colors.cyan,guisp=colors.cyan,style='underline'}
-	syntax['LspDiagnosticsDefaultWarning'] = {fg=colors.yellow,guisp=colors.yellow,style='underline'}
-	syntax['LspDiagnosticsDefaultHint'] = {fg=colors.green,guisp=colors.green,style='underline'}
-	syntax['LspDiagnosticsUnderlineError'] = syntax['LspDiagnosticsDefaultError']
-	syntax['LspDiagnosticsUnderlineWarning'] = syntax['LspDiagnosticsDefaultWarning']
-	syntax['LspDiagnosticsUnderlineInformation'] = syntax['LspDiagnosticsDefaultInformation']
-	syntax['LspDiagnosticsUnderlineHint'] = syntax['LspDiagnosticsDefaultHint']
+	syntax['LspDiagnosticsDefaultError'] = {fg=colors.orange,guisp=colors.orange,style='none'}
+	syntax['LspDiagnosticsDefaultWarning'] = {fg=colors.yellow,guisp=colors.yellow,style='none'}
+	syntax['LspDiagnosticsDefaultInformation'] = {fg=colors.cyan,guisp=colors.cyan,style='none'}
+	syntax['LspDiagnosticsDefaultHint'] = {fg=colors.green,guisp=colors.green,style='none'}
+	syntax['LspDiagnosticsUnderlineError'] = {fg=colors.none,guisp=colors.none,style='underline'}
+	syntax['LspDiagnosticsUnderlineWarning'] = {fg=colors.none,guisp=colors.none,style='underline'}
+	syntax['LspDiagnosticsUnderlineInformation'] = {fg=colors.none,guisp=colors.none,style='underline'}
+	syntax['LspDiagnosticsUnderlineHint'] = {fg=colors.none,guisp=colors.none,style='underline'}
 
 	syntax['LspSagaFinderSelection'] = syntax['Search']
 	syntax['DiagnosticError'] = syntax['LspDiagnosticsDefaultError']
