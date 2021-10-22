@@ -407,7 +407,7 @@ function M.load_syntax(colors)
 	syntax['TSTypeBuiltin'] = syntax['Type']
 	-- syntax['TSEmphasis'] = syntax['']
 
-	syntax['LspDiagnosticsDefaultError'] = {fg=colors.orange,guisp=colors.orange,style='none'}
+	syntax['LspDiagnosticsDefaultError'] = {fg=colors.red,guisp=colors.red,style='none'}
 	syntax['LspDiagnosticsDefaultWarning'] = {fg=colors.yellow,guisp=colors.yellow,style='none'}
 	syntax['LspDiagnosticsDefaultInformation'] = {fg=colors.cyan,guisp=colors.cyan,style='none'}
 	syntax['LspDiagnosticsDefaultHint'] = {fg=colors.green,guisp=colors.green,style='none'}
