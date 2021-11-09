@@ -351,7 +351,7 @@ function M.load_syntax(colors)
 	syntax['TSConstant'] = syntax['Constant']
 	syntax['TSConstBuiltin'] = syntax['Constant']
 	syntax['TSConstMacro'] = syntax['Constant']
-	syntax['TSError'] = syntax['Error']
+	syntax['TSError'] = {fg=colors.red}
 	syntax['TSException'] = syntax['Exception']
 	syntax['TSField'] = syntax['Identifier']
 	syntax['TSFloat'] = syntax['Float']
