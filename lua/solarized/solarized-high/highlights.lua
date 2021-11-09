@@ -399,6 +399,7 @@ function M.load_syntax(colors)
 	syntax['TSLiteral'] = syntax['Normal']
 	syntax['TSParameter'] = syntax['Identifier']
 	syntax['TSVariable'] = syntax['Identifier']
+  syntax['luaTSVariable'] = syntax['Normal']
 	syntax['TSVariableBuiltin'] = syntax['Identifier']
 	syntax['TSTag'] = syntax['Special']
 	syntax['TSTagDelimiter'] = syntax['Delimiter']
