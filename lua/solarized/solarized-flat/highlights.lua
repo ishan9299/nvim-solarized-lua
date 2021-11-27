@@ -378,7 +378,7 @@ function M.load_syntax(colors)
 	syntax['TSKeywordFunction'] = syntax['Identifier']
 	syntax['TSLiteral'] = syntax['Normal']
 	syntax['TSParameter'] = syntax['Identifier']
-	syntax['TSVariable'] = syntax['Normal']
+	syntax['TSVariable'] = {fg=colors.base0}
 	syntax['TSVariableBuiltin'] = syntax['Identifier']
 	syntax['TSTag'] = syntax['Special']
 	syntax['TSTagDelimiter'] = syntax['Delimiter']
