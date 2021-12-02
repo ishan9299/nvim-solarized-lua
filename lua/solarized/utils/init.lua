@@ -26,8 +26,8 @@ function M.highlighter(group, colors)
 	local c_foreground = colors.fg[2]
 	local g_background = colors.bg[1]
 	local c_background = colors.bg[2]
-	local guisp = colors.guisp[1]
-	local style = colors.style
+	local guisp = colors.guisp[1] or 'none'
+	local style = colors.style or 'none'
 	vim.cmd(string.format(
 	'hi %s guifg=%s guibg=%s guisp=%s gui=%s ctermfg=%s ctermbg=%s cterm=%s',
 	group, g_foreground, g_background, guisp, style, c_foreground, c_background, style
