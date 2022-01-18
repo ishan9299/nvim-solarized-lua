@@ -307,7 +307,7 @@ function M.load_syntax(colors)
 	syntax['Conditional'] = syntax['Statement']
 	syntax['Debug'] = syntax['Special']
 	syntax['Define'] = syntax['PreProc']
-	syntax['Delimiter'] = syntax['Special']
+	syntax['Delimiter'] = syntax['Normal']
 	syntax['Exception'] = syntax['Statement']
 	syntax['Float'] = syntax['Constant']
 	syntax['FloatBorder'] = syntax['VertSplit']
