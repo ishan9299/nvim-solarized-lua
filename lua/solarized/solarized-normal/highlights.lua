@@ -29,40 +29,6 @@ function M.load_syntax(colors)
 	syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)}
 	syntax['FloatBorder'] = {fg=colors.base1, bg=colors.none}
 
-	-- nvim-cmp syntax support
-	syntax['CmpDocumentation' ] = {fg=colors.base2, bg=colors.base02 }
-	syntax['CmpDocumentationBorder' ] = {fg=colors.base2, bg=colors.base02 }
-
-	syntax['CmpItemAbbr' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemAbbrDeprecated' ] = {fg=colors.base0, bg=colors.none }
-	syntax['CmpItemAbbrMatch' ] = {fg=colors.base2, bg=colors.none }
-	syntax['CmpItemAbbrMatchFuzzy' ] = {fg=colors.base2, bg=colors.none }
-
-	syntax['CmpItemKindDefault' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemMenu' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindKeyword' ] = {fg=colors.yellow, bg=colors.none }
-	syntax['CmpItemKindVariable' ] = {fg=colors.green, bg=colors.none }
-	syntax['CmpItemKindConstant' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindReference' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindValue' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindFunction' ] = {fg=colors.blue, bg=colors.none }
-	syntax['CmpItemKindMethod' ] = {fg=colors.blue, bg=colors.none }
-	syntax['CmpItemKindConstructor' ] = {fg=colors.blue, bg=colors.none }
-	syntax['CmpItemKindClass' ] = {fg=colors.red, bg=colors.none }
-	syntax['CmpItemKindInterface' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindStruct' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindEvent' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindEnum' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindUnit' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindModule' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindProperty' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindField' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindTypeParameter' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindEnumMember' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindOperator' ] = {fg=colors.base1, bg=colors.none }
-	syntax['CmpItemKindSnippet' ] = {fg=colors.orange, bg=colors.none }
-
-
 	if g.solarized_diffmode == 'low' then
 		syntax['DiffAdd'] = {fg=colors.green, bg=colors.none, guisp=colors.green}
 		syntax['DiffChange'] = {fg=colors.yellow, bg=colors.none, guisp=colors.yellow}
