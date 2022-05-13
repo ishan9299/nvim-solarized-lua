@@ -368,6 +368,39 @@ function M.load_syntax(colors)
 	syntax['VgitSignChange'] = syntax['DiffChange']
 	syntax['VGitSignRemove'] = syntax['DiffDelete']
 
+	-- nvim-cmp syntax support
+	syntax['CmpDocumentation' ] = {fg=colors.base1, bg=colors.base02 }
+	syntax['CmpDocumentationBorder' ] = {fg=colors.base1, bg=colors.base02 }
+
+	syntax['CmpItemAbbr' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemAbbrDeprecated' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemAbbrMatch' ] = {fg=colors.base1, bg=colors.none }
+	syntax['CmpItemAbbrMatchFuzzy' ] = {fg=colors.base1, bg=colors.none }
+
+	syntax['CmpItemKindDefault' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemMenu' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindKeyword' ] = {fg=colors.yellow, bg=colors.none }
+	syntax['CmpItemKindVariable' ] = {fg=colors.green, bg=colors.none }
+	syntax['CmpItemKindConstant' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindReference' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindValue' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindFunction' ] = {fg=colors.blue, bg=colors.none }
+	syntax['CmpItemKindMethod' ] = {fg=colors.blue, bg=colors.none }
+	syntax['CmpItemKindConstructor' ] = {fg=colors.blue, bg=colors.none }
+	syntax['CmpItemKindClass' ] = {fg=colors.red, bg=colors.none }
+	syntax['CmpItemKindInterface' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindStruct' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindEvent' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindEnum' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindUnit' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindModule' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindProperty' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindField' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindTypeParameter' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindEnumMember' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindOperator' ] = {fg=colors.base0, bg=colors.none }
+	syntax['CmpItemKindSnippet' ] = {fg=colors.orange, bg=colors.none }
+
 	for group, highlights in pairs(syntax) do
 		utils.highlighter(group, highlights)
 	end
