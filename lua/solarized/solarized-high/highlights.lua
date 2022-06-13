@@ -408,12 +408,12 @@ function M.load_syntax(colors)
 	-- syntax['TSEmphasis'] = syntax['']
 
 	syntax['DiagnosticError'] = {fg=colors.red,guisp=colors.red,style='none'}
-	syntax['DiagnosticWarning'] = {fg=colors.yellow,guisp=colors.yellow,style='none'}
-	syntax['DiagnosticInformation'] = {fg=colors.cyan,guisp=colors.cyan,style='none'}
+	syntax['DiagnosticWarn'] = {fg=colors.yellow,guisp=colors.yellow,style='none'}
+	syntax['DiagnosticInfo'] = {fg=colors.cyan,guisp=colors.cyan,style='none'}
 	syntax['DiagnosticHint'] = {fg=colors.green,guisp=colors.green,style='none'}
 	syntax['DiagnosticUnderlineError'] = {fg=colors.none,guisp=colors.red,style='underline'}
-	syntax['DiagnosticUnderlineWarning'] = {fg=colors.none,guisp=colors.yellow,style='underline'}
-	syntax['DiagnosticUnderlineInformation'] = {fg=colors.none,guisp=colors.cyan,style='underline'}
+	syntax['DiagnosticUnderlineWarn'] = {fg=colors.none,guisp=colors.yellow,style='underline'}
+	syntax['DiagnosticUnderlineInfo'] = {fg=colors.none,guisp=colors.cyan,style='underline'}
 	syntax['DiagnosticUnderlineHint'] = {fg=colors.none,guisp=colors.green,style='underline'}
 
 	syntax['LspReferenceRead'] = {fg=colors.none,style='underline'}
