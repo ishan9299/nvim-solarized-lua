@@ -473,7 +473,7 @@ function M.load_syntax(colors)
 	syntax['NavicIconsEvent'] = syntax['CmpItemKindEvent']
 	syntax['NavicIconsOperator'] = syntax['CmpItemKindOperator']
 	syntax['NavicIconsTypeParameter'] = syntax['CmpItemKindTypeParameter']
-	syntax['NavicText'] = syntax['Comment']
+	syntax['NavicText'] = syntax['LineNr']
 	syntax['NavicSeparator'] = syntax['Comment']
 
 	for group, highlights in pairs(syntax) do
