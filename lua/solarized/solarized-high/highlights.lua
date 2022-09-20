@@ -497,8 +497,9 @@ function M.load_syntax(colors)
 	syntax['NavicIconsEvent'] = syntax['CmpItemKindEvent']
 	syntax['NavicIconsOperator'] = syntax['CmpItemKindOperator']
 	syntax['NavicIconsTypeParameter'] = syntax['CmpItemKindTypeParameter']
-	syntax['NavicText'] = { fg = colors.gray, bg = colors.none}
-	syntax['NavicSeparator'] = {fg=colors.base00,style=utils.italics()}
+	syntax['NavicText'] = syntax['Comment']
+	syntax['NavicSeparator'] = syntax['Comment']
+
 
 	for group, highlights in pairs(syntax) do
 		utils.highlighter(group, highlights)
