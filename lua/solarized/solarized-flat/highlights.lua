@@ -444,6 +444,38 @@ function M.load_syntax(colors)
 	syntax['CmpItemKindOperator' ] = {fg=colors.base0, bg=colors.none }
 	syntax['CmpItemKindSnippet' ] = {fg=colors.orange, bg=colors.none }
 
+	syntax['NavicIconsFile'] = syntax['CmpItemKindFile']
+	syntax['NavicIconsModule'] = syntax['CmpItemKindModule']
+	syntax['NavicIconsNamespace'] = syntax['CmpItemKindModule']
+	syntax['NavicIconsPackage'] = syntax['CmpItemKindModule']
+	syntax['NavicIconsClass'] = syntax['CmpItemKindClass']
+	syntax['NavicIconsMethod'] = syntax['CmpItemKindMethod']
+	syntax['NavicIconsProperty'] = syntax['CmpItemKindProperty']
+	syntax['NavicIconsField'] = syntax['CmpItemKindField']
+	syntax['NavicIconsConstructor'] = syntax['CmpItemKindConstructor']
+	syntax['NavicIconsEnum'] = syntax['CmpItemKindEnum']
+	syntax['NavicIconsInterface'] = syntax['CmpItemKindInterface']
+	syntax['NavicIconsFunction'] = syntax['CmpItemKindFunction']
+	syntax['NavicIconsVariable'] = syntax ['CmpItemKindVariable']
+	syntax['NavicIconsConstant'] = syntax['CmpItemKindConstant']
+	syntax['NavicIconsString'] = syntax['String']
+	syntax['NavicIconsNumber'] = syntax['Number']
+	syntax['NavicIconsBoolean'] = syntax['Boolean']
+	syntax['NavicIconsArray'] = syntax['CmpItemKindClass']
+	syntax['NavicIconsObject'] = syntax['CmpItemKindClass']
+	syntax['NavicIconsKey'] = syntax['CmpItemKindKeyword']
+	syntax['NavicIconsKeyword'] = syntax['CmpItemKindKeyword']
+	syntax['NavicIconsNull'] =  {fg=colors.blue, bg=colors.none }
+	syntax['NavicIconsEnumMember'] = syntax['CmpItemKindEnumMember']
+	syntax['NavicIconsStruct'] = syntax['CmpItemKindStruct']
+	syntax['NavicIconsEvent'] = syntax['CmpItemKindEvent']
+	syntax['NavicIconsOperator'] = syntax['CmpItemKindOperator']
+	syntax['NavicIconsTypeParameter'] = syntax['CmpItemKindTypeParameter']
+	syntax['NavicText'] = syntax['LineNr']
+	syntax['NavicSeparator'] = syntax['Comment']
+
+
+
 	for group, highlights in pairs(syntax) do
 		utils.highlighter(group, highlights)
 	end

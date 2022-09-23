@@ -108,6 +108,7 @@ This is the low contrast option.
    - [x] FZF  
    - [x] lualine  
    - [x] lspsaga
+   - [x] nvim-navic
 
 # NOTE
 - Thanks for lifepillar's vim-solarized8 for providing most of the highlights and color codes for this scheme.
