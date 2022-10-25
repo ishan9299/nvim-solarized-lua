@@ -455,8 +455,8 @@ function M.load_syntax(colors)
 
 	syntax['@storageclass'] = syntax['StorageClass']
 	syntax['@attribute'] = syntax['PreProc']
-	syntax['@field'] = syntax['Identifier']
-	syntax['@property'] = syntax['Identifier']
+	syntax['@field'] = syntax['PreProc']
+	syntax['@property'] = syntax['PreProc']
 	-- }}}
 
 	-- Identifiers {{{
