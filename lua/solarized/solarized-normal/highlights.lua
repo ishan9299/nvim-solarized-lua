@@ -295,7 +295,7 @@ function M.load_syntax(colors)
 	syntax['Exception'] = syntax['Statement']
 	syntax['Float'] = syntax['Constant']
 	syntax['Function'] = syntax['Identifier']
-	syntax['Include'] = syntax['PreProc']
+	syntax['Include'] = syntax['Statement']
 	syntax['Keyword'] = syntax['Statement']
 	syntax['Label'] = syntax['Statement']
 	syntax['Macro'] = syntax['PreProc']
