@@ -486,8 +486,8 @@ function M.load_syntax(colors)
 	syntax['@text.reference'] = syntax['Constant']
 
 	syntax['@text.todo'] = syntax['Todo']
-	syntax['@text.note'] = syntax['Todo']
-	syntax['@text.warning'] = syntax['Todo']
+	syntax['@text.note'] = syntax['WarningMsg']
+	syntax['@text.warning'] = syntax['WarningMsg']
 	syntax['@text.danger'] = {fg=colors.red,style='bold'}
 	-- }}}
 
