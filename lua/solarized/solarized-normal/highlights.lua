@@ -423,7 +423,7 @@ function M.load_syntax(colors)
 	-- Functions {{{
 	syntax['@function'] = syntax['Function']
 	syntax['@function.call'] = syntax['Function']
-	syntax['@function.builtin'] = syntax['Special']
+	syntax['@function.builtin'] = syntax['Function']
 	syntax['@function.macro'] = syntax['Macro']
 
 	syntax['@method'] = syntax['Function']
