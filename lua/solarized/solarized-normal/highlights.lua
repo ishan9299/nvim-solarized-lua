@@ -129,10 +129,10 @@ function M.load_syntax(colors)
 	syntax['Identifier'] = {fg=colors.blue}
 	syntax['Ignore'] = {fg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
 	syntax['PreProc'] = {fg=colors.violet}
-	syntax['Special'] = {fg=colors.yellow}
+	syntax['Special'] = {fg=colors.orange}
 	syntax['Statement'] = {fg=colors.green}
 	syntax['Todo'] = {fg=colors.magenta,style='bold'}
-	syntax['Type'] = {fg=colors.orange}
+	syntax['Type'] = {fg=colors.yellow}
 	syntax['Text'] = {fg=colors.cyan}
 	syntax['Strikethrough'] = {fg=colors.base01,strikethrough=true}
 	syntax['Underlined'] = {fg=colors.violet}
@@ -467,7 +467,7 @@ function M.load_syntax(colors)
 	syntax['@constant.builtin'] = syntax['Type']
 	syntax['@constant.macro'] = syntax['Define']
 
-	syntax['@namespace'] = syntax['Special']
+	syntax['@namespace'] = syntax['Identifier']
 	syntax['@symbol'] = syntax['Identifier']
 	-- }}}
 
