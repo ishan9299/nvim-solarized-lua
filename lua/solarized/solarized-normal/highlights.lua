@@ -123,16 +123,18 @@ function M.load_syntax(colors)
 	syntax['WarningMsg'] = {fg=colors.orange,style='bold'}
 	syntax['WildMenu'] = {fg=colors.base2,bg=colors.base02,style='reverse'}
 	syntax['Comment'] = {fg=colors.base01,style=utils.italics()}
-	syntax['Constant'] = {fg=colors.cyan}
+	syntax['Constant'] = {fg=colors.magenta}
 	syntax['CursorIM'] = {fg=colors.none,bg=colors.base1}
 	syntax['Error'] = {fg=colors.red,bg=colors.err_bg,style='bold,reverse'}
 	syntax['Identifier'] = {fg=colors.blue}
 	syntax['Ignore'] = {fg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
-	syntax['PreProc'] = {fg=colors.orange}
+	syntax['PreProc'] = {fg=colors.violet}
 	syntax['Special'] = {fg=colors.orange}
 	syntax['Statement'] = {fg=colors.green}
 	syntax['Todo'] = {fg=colors.magenta,style='bold'}
 	syntax['Type'] = {fg=colors.yellow}
+	syntax['Text'] = {fg=colors.cyan}
+	syntax['Strikethrough'] = {fg=colors.base01,strikethrough=true}
 	syntax['Underlined'] = {fg=colors.violet}
 	syntax['NormalMode'] = {fg=colors.base0,bg=colors.base3,style='reverse'}
 	syntax['InsertMode'] = {fg=colors.cyan,bg=colors.base3,style='reverse'}
@@ -289,11 +291,11 @@ function M.load_syntax(colors)
 	syntax['Conditional'] = syntax['Statement']
 	syntax['Debug'] = syntax['Special']
 	syntax['Define'] = syntax['PreProc']
-	syntax['Delimiter'] = syntax['Special']
+	syntax['Delimiter'] = syntax['Type']
 	syntax['Exception'] = syntax['Statement']
 	syntax['Float'] = syntax['Constant']
 	syntax['Function'] = syntax['Identifier']
-	syntax['Include'] = syntax['PreProc']
+	syntax['Include'] = syntax['Statement']
 	syntax['Keyword'] = syntax['Statement']
 	syntax['Label'] = syntax['Statement']
 	syntax['Macro'] = syntax['PreProc']
@@ -307,7 +309,7 @@ function M.load_syntax(colors)
 	syntax['StatusLineTerm'] = syntax['StatusLine']
 	syntax['StatusLineTermNC'] = syntax['StatusLineNC']
 	syntax['StorageClass'] = syntax['Type']
-	syntax['String'] = syntax['Constant']
+	syntax['String'] = syntax['Text']
 	syntax['Structure'] = syntax['Type']
 	syntax['Tag'] = syntax['Special']
 	syntax['Typedef'] = syntax['Type']
@@ -387,6 +389,114 @@ function M.load_syntax(colors)
 	syntax['TSType'] = syntax['Type']
 	syntax['TSTypeBuiltin'] = syntax['Type']
 	-- syntax['TSEmphasis'] = syntax['']
+
+	-- BEGIN Neovim >= 0.8
+	-- Misc {{{
+	syntax['@comment'] = syntax['Comment']
+	syntax['@error'] = {fg=colors.red}
+	syntax['@none'] = syntax['NONE']
+	syntax['@preproc'] = syntax['PreProc']
+	syntax['@define'] = syntax['Define']
+	syntax['@operator'] = syntax['Operator']
+	-- }}}
+
+	-- Punctuation {{{
+	syntax['@punctuation.delimiter'] = syntax['Statement']
+	syntax['@punctuation.bracket'] = syntax['Delimiter']
+	syntax['@punctuation.special'] = syntax['Delimiter']
+	-- }}}
+
+	-- Literals {{{
+	syntax['@string'] = syntax['String']
+	syntax['@string.regex'] = syntax['String']
+	syntax['@string.escape'] = syntax['Constant']
+	syntax['@string.special'] = syntax['PreProc']
+
+	syntax['@character'] = syntax['Character']
+	syntax['@character.special'] = syntax['PreProc']
+
+	syntax['@boolean'] = syntax['Boolean']
+	syntax['@number'] = syntax['Number']
+	syntax['@float'] = syntax['Float']
+	-- }}}
+
+	-- Functions {{{
+	syntax['@function'] = syntax['Function']
+	syntax['@function.call'] = syntax['Function']
+	syntax['@function.builtin'] = syntax['Function']
+	syntax['@function.macro'] = syntax['Macro']
+
+	syntax['@method'] = syntax['Function']
+	syntax['@method.call'] = syntax['Function']
+
+	syntax['@constructor'] = syntax['Special']
+	syntax['@parameter'] = syntax['Normal']
+	-- }}}
+
+	-- Keywords {{{
+	syntax['@keyword'] = syntax['Keyword']
+	syntax['@keyword.function'] = syntax['Keyword']
+	syntax['@keyword.operator'] = syntax['Keyword']
+	syntax['@keyword.return'] = syntax['Keyword']
+
+	syntax['@conditional'] = syntax['Conditional']
+	syntax['@repeat'] = syntax['Repeat']
+	syntax['@debug'] = syntax['Debug']
+	syntax['@label'] = syntax['Label']
+	syntax['@include'] = syntax['Include']
+	syntax['@exception'] = syntax['Exception']
+	-- }}}
+
+	-- Types {{{
+	syntax['@type'] = syntax['Type']
+	syntax['@type.builtin'] = syntax['Type']
+	syntax['@type.qualifier'] = syntax['Type']
+	syntax['@type.definition'] = syntax['Typedef']
+
+	syntax['@storageclass'] = syntax['StorageClass']
+	syntax['@attribute'] = syntax['PreProc']
+	syntax['@field'] = syntax['PreProc']
+	syntax['@property'] = syntax['PreProc']
+	-- }}}
+
+	-- Identifiers {{{
+	syntax['@variable'] = syntax['Normal']
+	syntax['@variable.builtin'] = syntax['Special']
+
+	syntax['@constant'] = syntax['Constant']
+	syntax['@constant.builtin'] = syntax['Type']
+	syntax['@constant.macro'] = syntax['Define']
+
+	syntax['@namespace'] = syntax['Identifier']
+	syntax['@symbol'] = syntax['Identifier']
+	-- }}}
+
+	-- Text {{{
+	syntax['@text'] = syntax['Normal']
+	syntax['@text.strong'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['@text.emphasis'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['@text.underline'] = syntax['Underlined']
+	syntax['@text.strike'] = syntax['Strikethrough']
+	syntax['@text.title'] = syntax['Title']
+	syntax['@text.literal'] = syntax['String']
+	syntax['@text.uri'] = syntax['Underlined']
+	syntax['@text.math'] = syntax['Special']
+	syntax['@text.environment'] = syntax['Macro']
+	syntax['@text.environment.name'] = syntax['Type']
+	syntax['@text.reference'] = syntax['Constant']
+
+	syntax['@text.todo'] = syntax['Todo']
+	syntax['@text.note'] = syntax['WarningMsg']
+	syntax['@text.warning'] = syntax['WarningMsg']
+	syntax['@text.danger'] = {fg=colors.red,style='bold'}
+	-- }}}
+
+	-- Tags {{{
+	syntax['@tag'] = syntax['Tag']
+	syntax['@tag.attribute'] = syntax['Identifier']
+	syntax['@tag.delimiter'] = syntax['Delimiter']
+	-- }}}
+	-- END Neovim >= 0.8
 
 	syntax['DiagnosticError'] = {fg=colors.red,guisp=colors.red,style='none'}
 	syntax['DiagnosticWarn'] = {fg=colors.yellow,guisp=colors.yellow,style='none'}
