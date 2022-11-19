@@ -123,12 +123,12 @@ function M.load_syntax(colors)
 	syntax['WarningMsg'] = {fg=colors.orange,style='bold'}
 	syntax['WildMenu'] = {fg=colors.base2,bg=colors.base02,style='reverse'}
 	syntax['Comment'] = {fg=colors.base01,style=utils.italics()}
-	syntax['Constant'] = {fg=colors.magenta}
+	syntax['Constant'] = {fg=colors.cyan}
 	syntax['CursorIM'] = {fg=colors.none,bg=colors.base1}
 	syntax['Error'] = {fg=colors.red,bg=colors.err_bg,style='bold,reverse'}
 	syntax['Identifier'] = {fg=colors.blue}
 	syntax['Ignore'] = {fg=colors.none,ctermfg=colors.none,ctermbg=colors.none}
-	syntax['PreProc'] = {fg=colors.violet}
+	syntax['PreProc'] = {fg=colors.orange}
 	syntax['Special'] = {fg=colors.orange}
 	syntax['Statement'] = {fg=colors.green}
 	syntax['Todo'] = {fg=colors.magenta,style='bold'}
@@ -291,11 +291,11 @@ function M.load_syntax(colors)
 	syntax['Conditional'] = syntax['Statement']
 	syntax['Debug'] = syntax['Special']
 	syntax['Define'] = syntax['PreProc']
-	syntax['Delimiter'] = syntax['Type']
+	syntax['Delimiter'] = syntax['Special']
 	syntax['Exception'] = syntax['Statement']
 	syntax['Float'] = syntax['Constant']
 	syntax['Function'] = syntax['Identifier']
-	syntax['Include'] = syntax['Statement']
+	syntax['Include'] = syntax['PreProc']
 	syntax['Keyword'] = syntax['Statement']
 	syntax['Label'] = syntax['Statement']
 	syntax['Macro'] = syntax['PreProc']
@@ -409,11 +409,11 @@ function M.load_syntax(colors)
 	-- Literals {{{
 	syntax['@string'] = syntax['String']
 	syntax['@string.regex'] = syntax['String']
-	syntax['@string.escape'] = syntax['Constant']
-	syntax['@string.special'] = syntax['PreProc']
+	syntax['@string.escape'] = syntax['Special']
+	syntax['@string.special'] = syntax['Special']
 
 	syntax['@character'] = syntax['Character']
-	syntax['@character.special'] = syntax['PreProc']
+	syntax['@character.special'] = syntax['Special']
 
 	syntax['@boolean'] = syntax['Boolean']
 	syntax['@number'] = syntax['Number']
@@ -454,13 +454,13 @@ function M.load_syntax(colors)
 	syntax['@type.definition'] = syntax['Typedef']
 
 	syntax['@storageclass'] = syntax['StorageClass']
-	syntax['@attribute'] = syntax['PreProc']
-	syntax['@field'] = syntax['PreProc']
-	syntax['@property'] = syntax['PreProc']
+	syntax['@attribute'] = syntax['Identifier']
+	syntax['@field'] = syntax['Identifier']
+	syntax['@property'] = syntax['Identifier']
 	-- }}}
 
 	-- Identifiers {{{
-	syntax['@variable'] = syntax['Normal']
+	syntax['@variable'] = {fg=colors.base1}
 	syntax['@variable.builtin'] = syntax['Special']
 
 	syntax['@constant'] = syntax['Constant']
