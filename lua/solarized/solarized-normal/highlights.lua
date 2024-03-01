@@ -396,29 +396,50 @@ function M.load_syntax(colors)
 	syntax['@comment'] = syntax['Comment']
 	syntax['@error'] = {fg=colors.red}
 	syntax['@none'] = syntax['NONE']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@preproc'] = syntax['PreProc']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@keyword.directive'] = syntax['PreProc']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@define'] = syntax['Define']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@keyword.directive.define'] = syntax['Define']
 	syntax['@operator'] = syntax['Operator']
 	-- }}}
 
 	-- Punctuation {{{
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@punctuation.delimiter'] = syntax['Statement']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.raw.delimiter'] = syntax['Statement']
 	syntax['@punctuation.bracket'] = syntax['Delimiter']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@punctuation.special'] = syntax['Delimiter']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.list'] = syntax['Delimiter']
 	-- }}}
 
 	-- Literals {{{
 	syntax['@string'] = syntax['String']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@string.regex'] = syntax['String']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@string.regexp'] = syntax['String']
 	syntax['@string.escape'] = syntax['Special']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@string.special'] = syntax['Special']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.link.label'] = syntax['Constant']
 
 	syntax['@character'] = syntax['Character']
 	syntax['@character.special'] = syntax['Special']
 
 	syntax['@boolean'] = syntax['Boolean']
 	syntax['@number'] = syntax['Number']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@float'] = syntax['Float']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@number.float'] = syntax['Float']
 	-- }}}
 
 	-- Functions {{{
@@ -427,11 +448,18 @@ function M.load_syntax(colors)
 	syntax['@function.builtin'] = syntax['Function']
 	syntax['@function.macro'] = syntax['Macro']
 
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@method'] = syntax['Function']
 	syntax['@method.call'] = syntax['Function']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@function.method'] = syntax['Function']
+	syntax['@function.method.call'] = syntax['Function']
 
 	syntax['@constructor'] = syntax['Special']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@parameter'] = syntax['Normal']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@variable.parameter'] = syntax['Normal']
 	-- }}}
 
 	-- Keywords {{{
@@ -440,12 +468,21 @@ function M.load_syntax(colors)
 	syntax['@keyword.operator'] = syntax['Keyword']
 	syntax['@keyword.return'] = syntax['Keyword']
 
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@conditional'] = syntax['Conditional']
 	syntax['@repeat'] = syntax['Repeat']
 	syntax['@debug'] = syntax['Debug']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@keyword.conditional'] = syntax['Conditional']
+	syntax['@keyword.repeat'] = syntax['Repeat']
+	syntax['@keyword.debug'] = syntax['Debug']
 	syntax['@label'] = syntax['Label']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@include'] = syntax['Include']
 	syntax['@exception'] = syntax['Exception']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@keyword.import'] = syntax['Include']
+	syntax['@keyword.exception'] = syntax['Exception']
 	-- }}}
 
 	-- Types {{{
@@ -454,9 +491,15 @@ function M.load_syntax(colors)
 	syntax['@type.qualifier'] = syntax['Type']
 	syntax['@type.definition'] = syntax['Typedef']
 
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@storageclass'] = syntax['StorageClass']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@keyword.storage'] = syntax['StorageClass']
 	syntax['@attribute'] = syntax['Identifier']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@field'] = syntax['Identifier']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@variable.member'] = syntax['Identifier']
 	syntax['@property'] = syntax['Identifier']
 	-- }}}
 
@@ -470,26 +513,69 @@ function M.load_syntax(colors)
 
 	syntax['@namespace'] = syntax['Identifier']
 	syntax['@symbol'] = syntax['Identifier']
+	-- deprecated in nvim-treesitter 0.10
+	syntax['@module'] = syntax['Identifier']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@string.special.symbol'] = syntax['Identifier']
 	-- }}}
 
 	-- Text {{{
 	syntax['@text'] = syntax['Normal']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.strong'] = {fg=colors.base1,bg=colors.base03,style='bold'}
 	syntax['@text.emphasis'] = {fg=colors.base1,bg=colors.base03,style='bold'}
 	syntax['@text.underline'] = syntax['Underlined']
 	syntax['@text.strike'] = syntax['Strikethrough']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.strong'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['@markup.emphasis'] = {fg=colors.base1,bg=colors.base03,style='bold'}
+	syntax['@markup.italic'] = {fg=colors.base1,bg=colors.base03,style=utils.italics()}
+	syntax['@markup.underline'] = syntax['Underlined']
+	syntax['@markup.strike'] = syntax['Strikethrough']
+	syntax['@markup.strikethrough'] = syntax['Strikethrough']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.title'] = syntax['Title']
 	syntax['@text.literal'] = syntax['String']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.heading'] = syntax['Title']
+	syntax['@markup.raw'] = syntax['String']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.uri'] = syntax['Underlined']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@string.special.url'] = syntax['Underlined']
+	syntax['@markup.link.url'] = syntax['Underlined']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.math'] = syntax['Special']
 	syntax['@text.environment'] = syntax['Macro']
 	syntax['@text.environment.name'] = syntax['Type']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.math'] = syntax['@text.emphasis']
+	syntax['@markup.environment'] = syntax['Macro']
+	syntax['@markup.environment.name'] = syntax['Type']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.reference'] = syntax['Constant']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.link'] = syntax['Constant']
 
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.todo'] = syntax['Todo']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@markup.list.checked'] = syntax['Todo']
+	syntax['@markup.list.unchecked'] = syntax['Todo']
+	syntax['@comment.todo'] = syntax['Todo']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.note'] = syntax['WarningMsg']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@comment.info'] = syntax['WarningMsg']
+	syntax['@comment.hint'] = syntax['WarningMsg']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.warning'] = syntax['WarningMsg']
+	-- replacement in nvim-treesitter 0.10
+	syntax['@comment.warning'] = syntax['WarningMsg']
+	-- deprecated in nvim-treesitter 0.10
 	syntax['@text.danger'] = {fg=colors.red,style='bold'}
+	-- replacement in nvim-treesitter 0.10
+	syntax['@comment.danger'] = {fg=colors.red,style='bold'}
 	-- }}}
 
 	-- Tags {{{
