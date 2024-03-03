@@ -28,7 +28,7 @@ function M.load_syntax(colors)
 	syntax['CursorLine'] = {fg=colors.none,bg=utils.termtrans(colors.base02)}
 	syntax['LineNr'] = {fg=colors.base00,bg=utils.termtrans(colors.base02)}
 	syntax['FloatBorder'] = {fg=colors.base1, bg=colors.none}
-	synatx['NormalFloat'] = {fg=colors.base1,bg=colors.base02}
+	syntax['NormalFloat'] = {fg=colors.base1,bg=colors.base02}
 
 	if g.solarized_diffmode == 'low' then
 		syntax['DiffAdd'] = {fg=colors.green, bg=colors.none, guisp=colors.green}
